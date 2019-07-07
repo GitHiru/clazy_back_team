@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class PaymentsTableSeeder extends Seeder
 {
@@ -11,10 +13,22 @@ class PaymentsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('payments')->insert([
-            'payment' => 1000,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
+        $user = DB::table('users')->first();
+
+        $payments = [
+            ['payment' => '1000',],
+            ['payment' => '450',],
+            ['payment' => '150',],
+            ['payment' => '-150',],
+        ];
+
+        foreach ($payments as $payment) {
+            DB::table('payments')->insert([
+                'payment' => $payment['payment'],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'user_id' => $user->id
+            ]);
+        }
     }
 }
