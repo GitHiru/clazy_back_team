@@ -22,7 +22,6 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->integer('salary');
-            $table->date('payroll_date');
         });
     }
 

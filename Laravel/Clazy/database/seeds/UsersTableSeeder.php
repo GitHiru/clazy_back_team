@@ -20,7 +20,6 @@ class UsersTableSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'salary' => '200000',
-            'payroll_date' => Carbon::now(),
         ]);
     }
 }
