@@ -20,6 +20,10 @@ class PaymentsTableSeeder extends Seeder
             ['payment' => '450',],
             ['payment' => '150',],
             ['payment' => '-150',],
+            ['payment' => '2300',],
+            ['payment' => '380',],
+            ['payment' => '-380',],
+            ['payment' => '50',],
         ];
 
         foreach ($payments as $payment) {
