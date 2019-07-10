@@ -1,0 +1,126 @@
+/* inputの青枠を消す */
+
+body {
+    background-color: black !important;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type="button"] {
+    outline: none;
+}
+
+.value-text {
+    display: block;
+    width: 350px;
+    height: 90px;
+    text-align: end;
+}
+
+.value-text>p {
+    color: white;
+    font-size: 50px;
+    /* font-size: 10vw; */
+    padding-top: 32px;
+}
+
+.table-buttom {
+    width: 350px;
+    height: 480px;
+    margin: 0 10px 10px 10px;
+    text-align: center;
+    left: 210px;
+    top: 45px;
+}
+
+.calc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input.cbtn-head,
+input.cbtn-col,
+input.cbtn-num {
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    width: 70px;
+    height: 70px;
+    font-size: 30px;
+    text-align: center;
+}
+
+input.cbtn-col,
+input.cbtn-num {
+    color: white;
+}
+
+input.cbtn-head {
+    background-color: rgb(166, 166, 166)
+}
+
+input.cbtn-col {
+    background-color: rgb(228, 158, 76);
+}
+
+input.cbtn-num {
+    background-color: rgb(51, 51, 51);
+}
+
+input.cbtn-zero {
+    width: 150px !important;
+    border-radius: 40px !important;
+}
+
+.cbtn-head:active {
+    padding-top: 6px;
+    padding-bottom: 4px;
+    border: 1px solid rgb(126, 125, 125);
+    background-color: rgb(129, 129, 129);
+    color: black;
+    /* -webkit-box-shadow: inset 0px 0px 8px #334c66;
+    -moz-box-shadow: inset 0px 0px 2px rgb(228, 147, 55);
+    box-shadow: inset 0px 0px 2px rgb(228, 147, 55); */
+}
+
+.cbtn-col:active {
+    padding-top: 6px;
+    padding-bottom: 4px;
+    border: 1px solid #334c66;
+    background-color: rgb(226, 123, 5);
+    color: #e0ebf5;
+    /* -webkit-box-shadow: inset 0px 0px 8px #334c66;
+    -moz-box-shadow: inset 0px 0px 2px rgb(228, 147, 55);
+    box-shadow: inset 0px 0px 2px rgb(228, 147, 55); */
+}
+
+.cbtn-num:active {
+    padding-top: 6px;
+    padding-bottom: 4px;
+    border: 1px solid rgb(14, 13, 13);
+    background-color: rgb(32, 32, 32);
+    color: #e0ebf5;
+    /* -webkit-box-shadow: inset 0px 0px 8px #334c66;
+    -moz-box-shadow: inset 0px 0px 2px rgb(228, 147, 55);
+    box-shadow: inset 0px 0px 2px rgb(228, 147, 55); */
+}
+
+.btn-gradient-radius {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #FFF;
+  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  transition: .4s;
+}
+
+
+.btn-gradient-radius:active {
+  /*ボタンを押したとき*/
+    padding-top: 6px;
+    padding-bottom: 4px;
+    border: 1px solid #334c66;
+    background-color: rgb(226, 123, 5);
+    color: #e0ebf5;
+}
