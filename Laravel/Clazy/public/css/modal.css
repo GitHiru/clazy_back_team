@@ -1,0 +1,82 @@
+
+@charset "UTF-8";
+
+/* ここからデモページ用のコード */
+body {
+	width: 100% ;
+	padding: 0 ;
+}
+/* ここまでデモページ用のコード */
+
+/*初期モーダルのコンテンツ設定*/
+.modal-content {
+	border: 2px solid #aaa ;
+  text-align: center;
+}
+
+.card-body .bg-black {
+	background-color: #2c2c2c;
+}
+
+.card-body .text-black {
+	color:  #2c2c2c;
+}
+
+#modal-overlay {
+	z-index: 1 ;
+	display: none ;
+	position: fixed ;
+	top: 0 ;
+	left: 0 ;
+	width: 100% ;
+	height: 120% ;
+	background-color: rgba( 0,0,0, 0.75 ) ;
+}
+
+.button-link {
+	background-color: #2c2c2c;
+	color: white;
+	width: 80px;
+	height:40px;
+}
+
+.button-link:hover {
+	cursor: pointer ;
+	color: yellow ;
+}
+
+.button-linka:hover {
+cursor: pointer ;
+}
+
+.card {
+	height: 350px;
+}
+
+.card-text {
+	font-size: 2.7rem;
+}
+
+.card-body h5 {
+	font-size: 1.3rem;
+}
+
+@media screen and (max-width: 1192px) {
+	.card-text {
+		font-size: 2.2rem;
+	}
+
+	.card-body h5 {
+		font-size: 1.1rem;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.card-text {
+		font-size: 3rem;
+	}
+
+	.card-body h5 {
+		font-size: 1.8rem;
+	}
+}
