@@ -17,6 +17,8 @@
     <title>Document</title>
 </head>
 
+<!-- どの様に電卓画面での作業を構築するかを考える -->
+
 <body>
     <div class="calc">
         <div class="value-text" id="valueInput">
