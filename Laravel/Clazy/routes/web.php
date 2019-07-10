@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () { return view('welcome'); }); //(Laravel)初期データ
+
+Route::get('/', function () { return view('pc.login'); }); //log inページを出力
+
+//Route::get('/', 'ClazyController@chartData')->name('top.index');//chartデータ更新
