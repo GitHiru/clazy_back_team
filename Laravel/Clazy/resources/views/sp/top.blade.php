@@ -25,8 +25,10 @@
       <img src="{{ asset ('img/sp_logo.png') }}">
     </div>
   <!-- 入力バー -->
+  <a href="{{ route('Clazy.create') }}">
   <form id="form1" action="自分のサイトURL" method="get" style="text-align: center;">
     <input id="sbox1" id="s" name="s" type="text" style="width: 800px; height: 60px;" placeholder="使ったお金を入力してね（笑）" />
+  </a>
   </div>
 <!-- 下のフォント達 -->
 <!-- <div align="center" style="margin-top: 770px;">
