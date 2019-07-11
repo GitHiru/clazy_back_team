@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// use App\Clazy;//(追加) DB接続の為
 use App\Payment;//(追加) DB接続の為
 
 
@@ -67,10 +68,9 @@ class ClazyController extends Controller
 
     public function chartData()
     {
-        return 'Helloword';
         //①DBからデータを取得
-        $payments = Clazy::all();
-        // $diaries = Diary::('id', 'paymenrt')->get();
+        $payments = Payment::all();
+        // $payments = Payment::('id', 'payment')->get();
         dd($payments);
 
         //②データを整形しViewに返す
