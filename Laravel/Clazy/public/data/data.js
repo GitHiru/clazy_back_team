@@ -2,6 +2,27 @@
 *    main チャート
 ***********************************************************/
 
+chartColor = "#FFFFFF";
+
+let ctx = document.getElementById('bigDashboardChart').getContext("2d");
+let gradientFill = ctx.createLinearGradient(0, 200, 0, 50);
+gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
+let myChart = new Chart(ctx, {});
+// let chartData = 'label: "Data",
+//                  borderColor: chartColor,
+//                  pointBorderColor: chartColor,
+//                  pointBackgroundColor: "#1e3d60",
+//                  pointHoverBackgroundColor: "#1e3d60",
+//                  pointHoverBorderColor: chartColor,
+//                  pointBorderWidth: 1,
+//                  pointHoverRadius: 7,
+//                  pointHoverBorderWidth: 2,
+//                  pointRadius: 5,
+//                  fill: true,
+//                  backgroundColor: gradientFill,
+//                  borderWidth: 2';
+
 // Startページ読み込み時
 function initDashboardPageChartsWeek(){
   myChart = new Chart(ctx, {
@@ -21,7 +42,7 @@ function initDashboardPageChartsWeek(){
         pointRadius: 5,
         fill: true,
         backgroundColor: gradientFill,
-        borderWidth: 2,
+        borderWidth: 2',
         data: [250, 160, 120, 140, 190, 95, 78]
       }]
     },
@@ -102,7 +123,7 @@ function chnageWeekChart(chart) {
       pointRadius: 5,
       fill: true,
       backgroundColor: gradientFill,
-      borderWidth: 2,
+      borderWidth: 2',
       data: [250, 160, 120, 140, 190, 95, 78]
     }]
   }
@@ -126,18 +147,9 @@ function changeMonthChart(chart) {
       pointRadius: 5,
       fill: true,
       backgroundColor: gradientFill,
-      borderWidth: 2,
+      borderWidth: 2',
       data: [50, 150, 100, 190, 130, 190, 250, 160, 120, 140, 190, 95]
     }]
   }
   chart.update();
 }
-
-
-chartColor = "#FFFFFF";
-
-let ctx = document.getElementById('bigDashboardChart').getContext("2d");
-let gradientFill = ctx.createLinearGradient(0, 200, 0, 50);
-gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
-gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
-let myChart = new Chart(ctx, {});

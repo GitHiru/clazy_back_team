@@ -29,7 +29,7 @@
        -->
       <div class="logo" style="border-bottom: solid 1px white">
         <span class="simple-text logo-normal">
-          <img src="../assets/img/rogo.png" width=100% >
+          <img src="{{ assets ('img/rogo.png') }}" width=100% >
         </span>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
@@ -229,7 +229,6 @@
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script> -->
   <script src="{{ asset('data/data.js') }}" defer></script>
 
-
   <script>
     $(document).ready(function() {
       // default
@@ -245,8 +244,6 @@
       };
     });//jquery
   </script>
-
-
 
 </body>
 </html>
