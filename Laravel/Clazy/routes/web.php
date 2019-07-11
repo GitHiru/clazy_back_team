@@ -13,7 +13,19 @@
 
 // Route::get('/', function () { return view('welcome'); }); //(Laravel)初期データ
 
-Route::get('/', function () { return view('pc.login'); }); //log inページを出力
+// ■ loginページ表示
+Route::get('/', function () { return view('pc.login'); });
+// ■ firstモーダルページ表示
+Route::get('/modal', function () { return view('pc.modal'); });
+// ■ dashboardページ表示
+Route::get('/dashboard', function () { return view('pc.dashboard'); });
+
+
+// ■ (SP)loginページ表示
+Route::get('/sp', function () { return view('sp.login'); });
+// ■ (SP)firstモーダルページ表示
+Route::get('/sp/modal', function () { return view('sp.modal'); });
+
 
 //Route::get('/', 'ClazyController@chartData')->name('top.index');//chartデータ更新
 
@@ -23,6 +35,3 @@ Route::get('Clazy/create', 'ClazyController@create')->name('Clazy.create'); // �
 Route::post('Clazy/create', 'ClazyController@store')->name('Clazy.create'); // 保存処理
 
 // ここに表示するダイアリークリエイトは何を指しているのかが分からない。おそらく普通に勝手に定義していると考えられる。
-
-
-
