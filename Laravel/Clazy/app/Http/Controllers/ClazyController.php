@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Clazy;//(追加) DB接続
+use App\Clazy;//(追加) DB接続の為
 
 
 class ClazyController extends Controller
@@ -13,7 +13,6 @@ class ClazyController extends Controller
     {
         return 'Hello World';
     }
-
 
     // ログイン機能 **************************************************************
     // dear Mau

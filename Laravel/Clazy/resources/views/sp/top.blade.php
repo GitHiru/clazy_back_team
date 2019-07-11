@@ -22,11 +22,11 @@
   <!-- ロゴ -->
   <div class="box">
     <div style="margin-left:90px; margin-top:280px; text-align:center;">
-      <img src="../assets/img/sp_logo.png">
+      <img src="{{ asset ('img/sp_logo.png') }}">
     </div>
   <!-- 入力バー -->
   <form id="form1" action="自分のサイトURL" method="get" style="text-align: center;">
-    <input id="sbox1" id="s" name="s" type="text" style="width: 800px; height: 60px;" placeholder="金額を入力" />
+    <input id="sbox1" id="s" name="s" type="text" style="width: 800px; height: 60px;" placeholder="使ったお金を入力してね（笑）" />
   </div>
 <!-- 下のフォント達 -->
 <!-- <div align="center" style="margin-top: 770px;">
