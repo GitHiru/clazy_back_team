@@ -6,16 +6,16 @@
 <body>
   <div class="box">
     <div style="margin-left:90px; margin-top:400px; text-align:center;">
-      <img src="../assets/img/sp_logo.png">
+      <img src="{{asset ('img/sp_logo.png') }}">
     </div>
     <hr style="width: 70%; border:0;border-top:3px  solid grey;">
     <br>
   <div align="center">
     <a href="">
-      <img src="../assets/img/login_google.png" alt=""></a>
+      <img src="{{ asset ('img/login_google.png') }}" alt=""></a>
       <br>
     <a href="">
-      <img src="../assets/img/login_facebook.png" alt=""></a>
+      <img src="{{ asset ('img/login_facebook.png') }}" alt=""></a>
   </div>
   </div>
 </body>

@@ -6,10 +6,8 @@
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/sp_input_style.css') }}" rel="stylesheet">
-
-<script src="{{ asset('js/sp_input_style.js') }}" defer></script>
-<script src="{{ asset('js/core/bootstrap.min.js') }}" defer></script>
-
+  <script src="{{ asset('js/sp_input_style.js') }}" defer></script>
+  <script src="{{ asset('js/core/bootstrap.min.js') }}" defer></script>
 </head>
 <body>
   <!-- アカウント表示 -->
