@@ -19,15 +19,16 @@ Route::get('/', function () { return view('pc.login'); });
 Route::get('/modal', function () { return view('pc.modal'); });
 // ■ dashboardページ表示
 Route::get('/dashboard', function () { return view('pc.dashboard'); });
+//Route::get('/', 'ClazyController@chartData')->name('top.index');//chartデータ更新
 
 
 // ■ (SP)loginページ表示
 Route::get('/sp', function () { return view('sp.login'); });
-// ■ (SP)firstモーダルページ表示
-Route::get('/sp/modal', function () { return view('sp.modal'); });
+// ■ (SP)トップページ表示
+Route::get('/sp/top', function () { return view('sp.top'); });
+// ■ (SP)電卓ページ表示
 
 
-//Route::get('/', 'ClazyController@chartData')->name('top.index');//chartデータ更新
 
 
 Route::get('Clazy/create', 'ClazyController@create')->name('Clazy.create'); // 投稿画面
