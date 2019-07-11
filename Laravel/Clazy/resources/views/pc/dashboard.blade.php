@@ -29,7 +29,7 @@
        -->
       <div class="logo" style="border-bottom: solid 1px white">
         <span class="simple-text logo-normal">
-          <img src="{{ assets ('img/rogo.png') }}" width=100% >
+          <img src="{{ asset ('img/rogo.png') }}" width=100% >
         </span>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
