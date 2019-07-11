@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- css -->
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link href="{{ asset('css/calcu.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
@@ -21,21 +22,22 @@
 
 <body>
     <div class="calc">
-      <form action="{{ route('Clazy.create') }}" method="POST">
+        <a href="{{ route('Clazy.top') }}" class="btn btn-warning btn-block">ホーム画面へ</a>
+      <form onsubmit="addValue()" action="{{ route('Clazy.create') }}" method="POST">
                     @csrf
 　　　　　　　　　　　　<div class="form-group">
-
+                        <input id="payment" name="payment" type="hidden" />
                         <!-- 電卓の表示部分 -->
                         <div class="value-text" id="valueInput">
-                            <p id="value-display">
+                            <p id="value-display"></p>
                                 <!-- 追加された部分 -->
-                                <input type="text" class="form-control" name="title" id="title" />
-                            </p>
+                                <!-- <a href="" id="payment" name="payment"> -->
+                                <!-- <input type="text" class="form-control" name="title" id="title" /> -->
                         </div>
                         <!-- 電卓の表示部分終了 -->
                     </div>
 
-                    
+
                     <!-- 今のままだと電卓で入力された値を入力画面に拾うという処理ができていないから、その処理をどうすれば良いかを聞く -->
 
 
@@ -134,14 +136,23 @@
         </table>
 
 　　　　　<!-- 消費データの送信ボタンを追加 -->
-　　　　　<div class="text-right">
-        <a href="#" class="btn-gradient-radius">使ったお金を送信</a>
-　　　　　</div>
+　　　　　<div class="text-center">
+                        <button type="submit" class="btn btn-warning">使ったお金を送信</button>
+                    </div>
 　　　　　<!-- 消費データの入力終了 -->
 
 
+        
       </form>
     </div>
+
+    <script>
+        function addValue() {
+            let value = document.getElementById("value-display").innerText;
+            document.getElementById("payment").value = value;
+        }
+        
+    </script>
 </body>
 
 </html>

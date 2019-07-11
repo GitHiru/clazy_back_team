@@ -12,7 +12,7 @@ input[type="button"] {
 .value-text {
     display: block;
     width: 350px;
-    height: 90px;
+    height: 50px;
     text-align: end;
 }
 
@@ -20,7 +20,7 @@ input[type="button"] {
     color: white;
     font-size: 50px;
     /* font-size: 10vw; */
-    padding-top: 32px;
+    /*padding-top: 32px;*/
 }
 
 .table-buttom {
