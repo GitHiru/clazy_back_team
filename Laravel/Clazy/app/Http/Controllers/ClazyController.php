@@ -28,10 +28,22 @@ class ClazyController extends Controller
     // dear Hiroto
     // 恐らく複数のメソッドが予想されるよ！
 
-public function create()
+    public function create()
     {
         // views/diaries/create.blade.phpを表示する
+
         return view('sp.calcu');
+    }
+
+    public function store(Request $request)
+    {
+        // dd($request->input('payment'));
+        $payment = new Clazy(); //Diaryモデルをインスタンス化
+
+        $payment->payment = $request->payment; //画面で入力された消費データを代入
+        $payment->save(); //DBに保存
+
+        return redirect()->route('Clazy.create'); //一覧ページにリダイレクト
     }
 
 

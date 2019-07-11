@@ -29,7 +29,7 @@ function calcuInput(btn) {
     }
     if (keytmp != "") vDisplayClea();
     // (keytmp != "") ? vDisplayClea(): console.log();
-    valueDisplay.innerText = valueDisplay.innerHTML + btn;
+    valueDisplay.innerText = valueDisplay.innerText + btn;
 
 }
 
