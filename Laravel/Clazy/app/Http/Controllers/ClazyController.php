@@ -26,7 +26,11 @@ class ClazyController extends Controller
     // dear Hiroto
     // 恐らく複数のメソッドが予想されるよ！
 
-
+public function create()
+    {
+        // views/diaries/create.blade.phpを表示する
+        return view('sp.calcu');
+    }
 
 
 
