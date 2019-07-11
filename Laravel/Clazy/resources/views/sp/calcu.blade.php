@@ -17,11 +17,35 @@
     <title>Document</title>
 </head>
 
+<!-- どの様に電卓画面での作業を構築するかを考える -->
+
 <body>
     <div class="calc">
-        <div class="value-text" id="valueInput">
-            <p id="value-display"></p>
-        </div>
+      <form action="{{ route('Clazy.create') }}" method="POST">
+                    @csrf
+　　　　　　　　　　　　<div class="form-group">
+
+                        <!-- 電卓の表示部分 -->
+                        <div class="value-text" id="valueInput">
+                            <p id="value-display">
+                                <!-- 追加された部分 -->
+                                <input type="text" class="form-control" name="title" id="title" />
+                            </p>
+                        </div>
+                        <!-- 電卓の表示部分終了 -->
+                    </div>
+
+                    
+                    <!-- 今のままだと電卓で入力された値を入力画面に拾うという処理ができていないから、その処理をどうすれば良いかを聞く -->
+
+
+                    <!-- この部分をテキスト化する事で消費データを送信できる様にしたい。 -->
+　　　　　　　　　　　　　　　　　<!-- 電卓の上の表示部分 -->
+                            <!-- <div class="value-text" id="valueInput">
+                                <p id="value-display"></p>
+                            </div> -->
+
+
         <table class="table-buttom">
             <tbody>
                 <tr>
@@ -108,7 +132,15 @@
                 </tr>
             </tbody>
         </table>
+
+　　　　　<!-- 消費データの送信ボタンを追加 -->
+　　　　　<div class="text-right">
         <a href="#" class="btn-gradient-radius">使ったお金を送信</a>
+　　　　　</div>
+　　　　　<!-- 消費データの入力終了 -->
+
+
+      </form>
     </div>
 </body>
 
