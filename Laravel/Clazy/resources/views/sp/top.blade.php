@@ -22,7 +22,7 @@
   <!-- ロゴ -->
   <div class="box">
     <div style="margin-left:90px; margin-top:280px; text-align:center;">
-      <img src="{{ assets('img/sp_logo.png') }}">
+      <img src="{{ asset ('img/sp_logo.png') }}">
     </div>
   <!-- 入力バー -->
   <form id="form1" action="自分のサイトURL" method="get" style="text-align: center;">
