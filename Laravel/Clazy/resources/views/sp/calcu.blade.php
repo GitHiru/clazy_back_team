@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- css -->
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link href="{{ asset('css/calcu.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
@@ -21,6 +22,7 @@
 
 <body>
     <div class="calc">
+        <a href="{{ route('Clazy.top') }}" class="btn btn-warning btn-block">ホーム画面へ</a>
       <form onsubmit="addValue()" action="{{ route('Clazy.create') }}" method="POST">
                     @csrf
 　　　　　　　　　　　　<div class="form-group">

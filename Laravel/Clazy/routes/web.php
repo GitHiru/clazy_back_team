@@ -24,7 +24,7 @@ Route::get('/dashboard', function () { return view('pc.dashboard'); });
 // ■ (SP)loginページ表示
 Route::get('/sp', function () { return view('sp.login'); });
 // ■ (SP)トップページ表示
-Route::get('/sp/top', function () { return view('sp.top'); });
+Route::get('sp/top', 'ClazyController@createTop')->name('Clazy.top');
 // ■ (SP)電卓ページ表示
 Route::get('create', 'ClazyController@create')->name('Clazy.create'); // 投稿画面
 Route::post('create', 'ClazyController@store')->name('Clazy.create'); // 保存処理
