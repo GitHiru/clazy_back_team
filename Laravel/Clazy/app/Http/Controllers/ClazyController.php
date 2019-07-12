@@ -76,6 +76,5 @@ class ClazyController extends Controller
         //②データを整形しViewに返す
         return view('pc.dashboard');
     }
-
-
+    
 }
