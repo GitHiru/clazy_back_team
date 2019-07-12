@@ -84,7 +84,38 @@
 <!-- 編集モーダルの完了ボタンを押しても画面を閉じる事ができない。
 ボタンにはしっかりとmodal-closeが設定されているしaタブに新しくモーダルopenを設定することもした。jsが起動し始める為にはmodalopenが必要だと思ったがそれでもダメだっった。先生が新しくいれて下さっているデータトグルを追加した意味などを理解出来ると分かるのかなと思った。 -->
 
-    <!-- ここから初期・編集モーダルウィンドウ -->
+<!-- ここから初期モーダルウィンドウ -->
+    <div class="modal fade" id="modal-2">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <!-- モーダルウィンドウのコンテンツ開始 -->
+          <h4>最初に以下の値を入力してね</h4>
+          <h3>
+            <i class="fas fa-trophy"></i>
+            貯めたいお金(月)<br>
+            <input type="text">円
+          </h3>
+          <!-- 例として薄いグレー色で値を表示する。メールアドレスと同じ様に -->
+          <!-- 値を右から並べれる様にしたい -->
+          <!-- アプリにした時にテキストボックスの枠線が見えない -->
+
+          <h3>
+            <i class="fas fa-coins"></i>
+            入ったお金(月)
+            <input type="text">円
+          </h3>
+          <p>
+            <button class="modal-close button-link " data-dismiss="modal">
+              完了
+            </button>
+          </p>
+          <!-- モーダルウィンドウのコンテンツ終了 -->
+        </div>
+      </div>
+    </div>
+    <!-- 初期モーダルウィンドウ終わり -->
+
+    <!-- ここから編集モーダルウィンドウ -->
     <div class="modal fade" id="modal-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
