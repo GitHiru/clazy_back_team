@@ -2,6 +2,11 @@
 *    main チャート
 ***********************************************************/
 
+// 変数を各メソッドで流用できるのか？描画データをまとめたい
+// データ部分をSQLから出力するには？
+//
+
+
 chartColor = "#FFFFFF";
 
 let ctx = document.getElementById('bigDashboardChart').getContext("2d");
@@ -42,7 +47,7 @@ function initDashboardPageChartsWeek(){
         pointRadius: 5,
         fill: true,
         backgroundColor: gradientFill,
-        borderWidth: 2',
+        borderWidth: 2,
         data: [250, 160, 120, 140, 190, 95, 78]
       }]
     },
@@ -123,7 +128,7 @@ function chnageWeekChart(chart) {
       pointRadius: 5,
       fill: true,
       backgroundColor: gradientFill,
-      borderWidth: 2',
+      borderWidth: 2,
       data: [250, 160, 120, 140, 190, 95, 78]
     }]
   }
@@ -147,7 +152,7 @@ function changeMonthChart(chart) {
       pointRadius: 5,
       fill: true,
       backgroundColor: gradientFill,
-      borderWidth: 2',
+      borderWidth: 2,
       data: [50, 150, 100, 190, 130, 190, 250, 160, 120, 140, 190, 95]
     }]
   }
