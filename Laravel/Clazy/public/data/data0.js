@@ -136,3 +136,13 @@ function changeMonthChart(chart) {
   chart.data = mData
   chart.update();
 }
+
+//Ajax （リクエスト）データ取得
+//whereで期間指定（carbonで日付or曜日決める）
+//SQL groupBy グループ化＋集計関数が使える（合計値）
+//（query vilderで記述）
+
+//返って来たデータを配列に変換
+//wData.datasets.data = return data
+//json 文字列にしてから配列
+//
