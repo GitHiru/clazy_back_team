@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/rogo.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset ('img/rogo.png') }}">
   <!-- ファビコンをナマケモノに変換する。バグってるから写真を変える -->
-  <link rel="icon" type="image/png" href="../assets/img/rogo.png">
+  <link rel="icon" type="image/png" href="{{ asset ('img/rogo.png') }}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>Clazy</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -261,9 +261,11 @@
   <!-- Chart JS -->
   <script src="{{ asset('js/plugins/chartjs.min.js') }}" defer></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script> -->
-  <script src="{{ asset('data/data.js') }}" defer></script>
-
+  <script src="{{ asset('data/data0.js') }}" defer></script>
+  
+  <!-- dashboard JS -->
   <script src="{{ asset('js/dashboard.js') }}" defer></script>
+
 
 </body>
 </html>
