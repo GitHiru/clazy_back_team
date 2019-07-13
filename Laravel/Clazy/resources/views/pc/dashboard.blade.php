@@ -228,22 +228,8 @@
   <script src="{{ asset('js/plugins/chartjs.min.js') }}" defer></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script> -->
   <script src="{{ asset('data/data0.js') }}" defer></script>
+  <script src="{{ asset('js/dashboard.js') }}" defer></script>
 
-  <script type="text/javascript">
-  //[Q] 何故か反応せず
-    $(document).ready(function() {
-      // default
-      initDashboardPageChartsWeek();
-      // Week
-      document.getElementById('w').onclick = function(){
-        chnageWeekChart(myChart);
-      };
-      // Month
-      document.getElementById('m').onclick = function(){
-        changeMonthChart(myChart);
-      };
-    });
-  </script>
 
 </body>
 </html>
