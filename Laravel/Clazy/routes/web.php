@@ -18,7 +18,7 @@ Route::get('/', function () { return view('pc.login'); });
 // ■ firstモーダルページ表示
 Route::get('/modal', function () { return view('pc.modal'); });
 // ■ dashboardページ表示
-Route::get('/dashboard', function () { return view('pc.dashboard'); });
+Route::get('dashboard', 'ClazyController@firstInformation')->name('Clazy.firstInformation'); // 目標貯金と給料表示処理
 //Route::get('/', 'ClazyController@chartData')->name('top.index');//chartデータ更新
 
 // ■ (SP)loginページ表示
