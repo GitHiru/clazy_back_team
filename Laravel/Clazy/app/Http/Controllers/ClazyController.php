@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // use App\Clazy;//(追加) DB接続の為
 use App\Payment;//(追加) DB接続の為
-
+use App\User;//(追加) DB接続の為
 
 class ClazyController extends Controller
 {
@@ -33,6 +33,15 @@ class ClazyController extends Controller
     // 入力機能  *****************************************************************
     // dear Hiroto
     // 恐らく複数のメソッドが予想されるよ！
+
+
+    // 初期データを表示するコントローラー
+    public function firstInformation()
+    {
+        $users = User::all();
+
+        return view('pc.dashboard',['users' => $users]);
+    }
 
     public function create()
     {

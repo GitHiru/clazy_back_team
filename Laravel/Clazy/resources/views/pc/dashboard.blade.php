@@ -37,7 +37,9 @@
           <li style="border-bottom: solid 1px white">
               <h5><i class="now-ui-icons users_single-02"></i></h5>
               <h5 style="color: white">貯めたいお金</h5>
-              <h1 style="color: white"><i class="fas fa-yen-sign"></i>30000</h1>
+              @foreach ($users as $user)
+              <h1 style="color: white"><i class="fas fa-yen-sign"></i>{{ $user->saving }}</h1>
+              @endforeach
           </li>
           <li >
             <a data-toggle="modal" data-target="#modal-1" id="modal-open">
@@ -206,7 +208,9 @@
             <h3 class="card-header"><i class="fas fa-coins"></i>入ったお金</h3>
             <div class="card-body text-warning">
               <h5 class="card-title py-3"></h5>
-              <p class="card-text py-5"><i class="fas fa-yen-sign text-black"></i>230000</p>
+              @foreach ($users as $user)
+              <p class="card-text py-5"><i class="fas fa-yen-sign text-black"></i>{{ $user->salary }}</p>
+              @endforeach
             </div>
           </div>
         </div>
