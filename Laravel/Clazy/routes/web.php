@@ -19,7 +19,11 @@ Route::get('/', function () { return view('pc.login'); });
 Route::get('/modal', function () { return view('pc.modal'); });
 // ■ dashboardページ表示
 Route::get('dashboard', 'ClazyController@firstInformation')->name('Clazy.firstInformation'); // 目標貯金と給料表示処理
+// ■ dashboardページ編集作業
+Route::get('{id}/dashboard', 'ClazyController@edit')->name('Clazy.edit'); // 編集画面
+
 //Route::get('/', 'ClazyController@chartData')->name('top.index');//chartデータ更新
+
 
 // ■ (SP)loginページ表示
 Route::get('/sp', function () { return view('sp.login'); });

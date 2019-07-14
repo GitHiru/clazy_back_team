@@ -64,6 +64,14 @@ class ClazyController extends Controller
         return redirect()->route('Clazy.create'); //一覧ページにリダイレクト
     }
 
+public function edit(int $id)
+{
+    $user = User::find($id);
+
+    return view('pc.dashboard', [
+        'user' => $user,
+    ]);
+}
 
 
 
