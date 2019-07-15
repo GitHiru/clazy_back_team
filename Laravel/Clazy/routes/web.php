@@ -26,6 +26,15 @@ Route::get('/dashboard', function () { return view('pc.dashboard'); });
 
 Route::get('dashboard', 'ClazyController@firstInformation')->name('Clazy.firstInformation'); // 目標貯金と給料表示処理
 
+// ■ dashboardページ編集作業(get)
+Route::get('{id}/dashboard', 'ClazyController@edit')->name('Clazy.edit'); // 編集画面
+// ■ dashboardページ編集作業(put)
+Route::put('{id}/update', 'ClazyController@update')->name('Clazy.update'); //更新処理
+
+
+//Route::get('/', 'ClazyController@chartData')->name('top.index');//chartデータ更新
+
+
 // ■ (SP)loginページ表示
 Route::get('/sp', function () { return view('sp.login'); });
 // ■ (SP)トップページ表示
