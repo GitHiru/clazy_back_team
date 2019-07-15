@@ -9,12 +9,6 @@ use App\User;//(追加) DB接続の為
 
 class ClazyController extends Controller
 {
-    // demo追加 *****************************************************************
-    public function index()
-    {
-        return 'Hello World';
-    }
-
     // ログイン機能 **************************************************************
     // dear Mau
     // 一旦授業のログイン機能を実施。その後はtrelloにある他のAPIでログインを試みる!
@@ -106,7 +100,7 @@ public function update(int $id, Request $request)
     // 出力機能  *****************************************************************
     // User毎にWeek＋Monthデータを取得＋chart.jsに配列渡し。
 
-    public function chartData()
+    public function chart()
     {
         //①DBからデータを取得
         $payments = Payment::all();
@@ -116,5 +110,5 @@ public function update(int $id, Request $request)
         //②データを整形しViewに返す
         return view('pc.dashboard');
     }
-    
+
 }

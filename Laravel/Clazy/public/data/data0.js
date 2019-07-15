@@ -1,5 +1,53 @@
 /***********************************************************
-*    main チャート
+*    チャート データ取得
+***********************************************************/
+//Ajax （リクエスト）データ取得
+//whereで期間指定（carbonで日付or曜日決める）
+//SQL groupBy グループ化＋集計関数が使える（合計値）
+//（query vilderで記述）
+
+//返って来たデータを配列に変換
+//wData.datasets.data = return data
+//json 文字列にしてから配列
+//
+
+$(document).on('click', '.js-like', function() {
+    let userId = $(this).siblings('.user-id').val();
+
+    chart(diaryId);
+})
+
+function chart(diaryId, $clickedBtn) {
+    $.ajax({
+        url: 'diary/' + diaryId +'/like',
+        type: 'POST',
+        dataTyupe: 'json',
+
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }//token送信
+    })
+    .then(
+        function (data) {
+          //jsonでデータを取得（文字列）
+
+          //文字列データを配列変換
+
+          // wData.datasets.data = return data;
+        },
+        function (error) {
+            console.log(error);
+        }
+    )
+}
+
+
+
+
+
+
+
+
+/***********************************************************
+*    チャート 描画
 ***********************************************************/
 
 chartColor = "#FFFFFF";
@@ -10,10 +58,6 @@ let gradientFill = ctx.createLinearGradient(0, 200, 0, 50);
     gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
     gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
 
-//■user毎にJson取得データを返す
-// let wArray = <?php echo json_encode($data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>;
-// let mArray = <?php echo json_encode($data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>;
-// // console.log(array);
 
 //■user毎に取得データを返す
 //当該週データを取得
@@ -136,13 +180,3 @@ function changeMonthChart(chart) {
   chart.data = mData
   chart.update();
 }
-
-//Ajax （リクエスト）データ取得
-//whereで期間指定（carbonで日付or曜日決める）
-//SQL groupBy グループ化＋集計関数が使える（合計値）
-//（query vilderで記述）
-
-//返って来たデータを配列に変換
-//wData.datasets.data = return data
-//json 文字列にしてから配列
-//
