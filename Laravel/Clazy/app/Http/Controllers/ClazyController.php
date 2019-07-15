@@ -66,7 +66,7 @@ class ClazyController extends Controller
     // 出力機能  *****************************************************************
     // User毎にWeek＋Monthデータを取得＋chart.jsに配列渡し。
 
-    public function chartData()
+    public function chart()
     {
         //①DBからデータを取得
         $payments = Payment::all();
@@ -76,5 +76,5 @@ class ClazyController extends Controller
         //②データを整形しViewに返す
         return view('pc.dashboard');
     }
-    
+
 }
