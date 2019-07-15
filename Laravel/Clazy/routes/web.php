@@ -19,7 +19,10 @@ Route::get('/', function () { return view('pc.login'); });
 Route::get('/modal', function () { return view('pc.modal'); });
 // ■ dashboardページ表示
 Route::get('/dashboard', function () { return view('pc.dashboard'); });
-//Route::get('/', 'ClazyController@chartData')->name('top.index');//chartデータ更新
+// （chart）サーバーでの処理
+// 直接SQLを記述して、ログイン時のweekデータ７日分＋経過した月合算データを取得してjson形式にして返す
+// Route::post('dashboard/{id}/chart', 'DiaryController@chart');
+
 
 // ■ (SP)loginページ表示
 Route::get('/sp', function () { return view('sp.login'); });
@@ -28,4 +31,3 @@ Route::get('sp/top', 'ClazyController@createTop')->name('Clazy.top');
 // ■ (SP)電卓ページ表示
 Route::get('create', 'ClazyController@create')->name('Clazy.create'); // 投稿画面
 Route::post('create', 'ClazyController@store')->name('Clazy.create'); // 保存処理
-
