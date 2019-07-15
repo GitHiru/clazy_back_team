@@ -84,16 +84,20 @@
     </nav>
     <!-- end toggle -->
 
+
+
     <!-- ここから初期モーダルウィンドウ -->
     <div class="modal fade" id="modal-2">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
+          <form action="{{ route('Clazy.firstInformation') }}" method="POST">
+                    @csrf
           <!-- モーダルウィンドウのコンテンツ開始 -->
           <h4>最初に以下の値を入力してね</h4>
           <h3>
             <i class="fas fa-trophy"></i>
             貯めたいお金(月)<br>
-            <input type="text">円
+            <input type="text" name="saving" id="saving">円
           </h3>
           <!-- 例として薄いグレー色で値を表示する。メールアドレスと同じ様に -->
           <!-- 値を右から並べれる様にしたい -->
@@ -102,13 +106,15 @@
           <h3>
             <i class="fas fa-coins"></i>
             入ったお金(月)
-            <input type="text">円
+            <input type="text" name="salary" id="salary">円
           </h3>
           <p>
-            <button class="modal-close button-link " data-dismiss="modal">
+            <!-- モーダルクロースとデータディスミスを消す事でデータ送信機能をつける事が出来る -->
+            <button class="button-link" type="submit">
               完了
             </button>
           </p>
+          </form>
           <!-- モーダルウィンドウのコンテンツ終了 -->
         </div>
       </div>

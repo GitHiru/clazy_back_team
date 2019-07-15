@@ -69,31 +69,39 @@ class ClazyController extends Controller
         return redirect()->route('Clazy.create'); //一覧ページにリダイレクト
     }
 
-public function edit(int $id)
-{
-    $user = User::find($id);
+    public function edit(int $id)
+    {
+        $user = User::find($id);
 
-    return view('pc.dashboard', [
-        'user' => $user,
-    ]);
-}
+        return view('pc.dashboard', [
+            'user' => $user,
+        ]);
+    }
 
-public function update(int $id, Request $request)
-{
+    public function update(int $id, Request $request)
+    {
 
-    $user = User::find($id);
+        $user = User::find($id);
 
-    $user->saving = $request->saving; //画面で入力されたタイトルを代入
-    $user->salary = $request->salary; //画面で入力された本文を代入
-    $user->save(); //DBに保存
+        $user->saving = $request->saving; //画面で入力されたタイトルを代入
+        $user->salary = $request->salary; //画面で入力された本文を代入
+        $user->save(); //DBに保存
 
-    return redirect()->route('Clazy.firstInformation'); //一覧ページにリダイレクト
-}
+        return redirect()->route('Clazy.firstInformation'); //一覧ページにリダイレクト
+    }
 
-// 消費データ全てを所得という指示を、今月分のみ所得という指示に変換する事ができると、データを今月分所得する事ができる。そしてその後に絡むを全て足し合わせるという指示を記入してフォーイーチで表示すると消費データを表示する事が可能になる。
+    // 初期投稿保存処理
 
+    public function storeFirst(Request $request)
+    {
+        $user = new User(); //Diaryモデルをインスタンス化
 
+        $user->saving = $request->saving; //画面で入力されたタイトルを代入
+        $user->salary = $request->salary; //画面で入力された本文を代入
+        $user->save(); //DBに保存
 
+        return redirect()->route('Clazy.firstInformation'); //一覧ページにリダイレクト
+    }
 
 
 
