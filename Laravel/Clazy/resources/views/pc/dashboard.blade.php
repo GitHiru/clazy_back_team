@@ -42,6 +42,7 @@
               @endforeach
           </li>
           <li >
+            <!-- userIDを正しく送れているのか分からない。 -->
             <a data-toggle="modal" data-target="#modal-1" id="modal-open" href="{{ route('Clazy.edit', ['id' => $user->id]) }}">
               <i class="fas fa-user-edit"></i>
               <p>データ編集</p>
@@ -115,36 +116,36 @@
     <!-- 初期モーダルウィンドウ終わり -->
 
 
-
-
     <!-- ここから編集モーダルウィンドウ -->
     <div class="modal fade" id="modal-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <!-- モーダルウィンドウのコンテンツ開始 -->
-
+        <form action="{{ route('Clazy.update', ['id' => $user->id]) }}" method="post">
+                    @csrf
+                    @method('put')
           <h3>
             <i class="fas fa-trophy"></i>
             貯めたいお金(月)<br>
-            <input type="text">円
+            <input type="text" name="saving" id="saving" value="{{ old('saving', $user->saving) }}">円
           </h3>
 
           <h3>
             <i class="fas fa-coins"></i>
             入ったお金(月)
-            <input type="text">円
+            <input type="text" name="salary" id="salary" value="{{ old('salary', $user->salary) }}">円
           </h3>
           <p>
-            <button class="modal-close button-link " data-dismiss="modal">
+            <button type="submit" class="button-link ">
               完了
             </button>
           </p>
+          </form>
           <!-- モーダルウィンドウのコンテンツ終了 -->
         </div>
       </div>
     </div>
     <!-- 初期モーダルウィンドウ終わり -->
-
 
 
     <!-- ここから目標貯金額編集モーダルウィンドウ -->
@@ -217,7 +218,7 @@
             <h3 class="card-header"><i class="fas fa-hand-holding-usd"></i>使ったお金</h3>
             <div class="card-body text-warning">
               <h5 class="card-title py-3"></h5>
-              <p class="card-text py-5"><i class="fas fa-yen-sign text-black"></i>170000</p>
+              <p class="card-text py-5"><i class="fas fa-yen-sign text-black"></i>{{ $total }}</p>
             </div>
           </div>
         </div>
@@ -226,7 +227,7 @@
             <h3 class="card-header"><i class="fas fa-user-plus"></i>自由に使えるお金</h3>
             <div class="card-body text-warning">
               <h5 class="card-title py-3"></h5>
-              <p class="card-text py-5"><i class="fas fa-yen-sign text-black"></i>30000</p>
+              <p class="card-text py-5"><i class="fas fa-yen-sign text-black"></i>{{ $free }}</p>
             </div>
           </div>
         </div>
