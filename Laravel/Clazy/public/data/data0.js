@@ -31,7 +31,7 @@ function chart(diaryId, $clickedBtn) {
 
           //文字列データを配列変換
 
-          wData.datasets.data = return data;
+          // wData.datasets.data = return data;
         },
         function (error) {
             console.log(error);

@@ -9,12 +9,6 @@ use App\User;//(追加) DB接続の為
 
 class ClazyController extends Controller
 {
-    // demo追加 *****************************************************************
-    public function index()
-    {
-        return 'Hello World';
-    }
-
     // ログイン機能 **************************************************************
     // dear Mau
     // 一旦授業のログイン機能を実施。その後はtrelloにある他のAPIでログインを試みる!
