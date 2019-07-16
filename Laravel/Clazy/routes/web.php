@@ -13,19 +13,22 @@
 
 // Route::get('/', function () { return view('welcome'); }); //(Laravel)初期データ
 
+/*******************************************************
+ * (PC)
+ *******************************************************/
 // ■ loginページ表示
 Route::get('/', function () { return view('pc.login'); });
 // ■ firstモーダルページ表示
 Route::get('/modal', function () { return view('pc.modal'); });
 // ■ dashboardページ表示
 Route::get('/dashboard', function () { return view('pc.dashboard'); });
-
-// （chart）サーバーでの処理
-// 直接SQLを記述して、ログイン時のweekデータ７日分＋経過した月合算データを取得してjson形式にして返す
-// Route::post('dashboard/{id}/chart', 'DiaryController@chart');
-
+Route::post('dashboard/chart', 'ClazyController@chart');// （chart）
 Route::get('dashboard', 'ClazyController@firstInformation')->name('Clazy.firstInformation'); // 目標貯金と給料表示処理
 
+
+/*******************************************************
+ * (SP)
+ *******************************************************/
 // ■ (SP)loginページ表示
 Route::get('/sp', function () { return view('sp.login'); });
 // ■ (SP)トップページ表示
