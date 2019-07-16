@@ -1,15 +1,17 @@
 $(function() {
-      // default
-      initDashboardPageChartsWeek();
-      // Week
+  /***********************************************************
+  *    チャート 描画 + モーダル 表示
+  ***********************************************************/
+      // Weekボタン押下処理
       document.getElementById('w').onclick = function(){
         chnageWeekChart(myChart);
       };
-      // Month
+      // Monthボタン押下処理
       document.getElementById('m').onclick = function(){
         changeMonthChart(myChart);
       };
 
-      // First modal
+
+      // 初期モーダル表示
       $("#modal-2").modal("show");
 });
