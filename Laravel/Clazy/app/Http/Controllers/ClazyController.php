@@ -57,14 +57,21 @@ class ClazyController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->input('payment'));
-        $payment = new Payment(); //Diaryモデルをインスタンス化
+        $payments = new Payment();
+
+        $dt = Carbon::now();
+
         // 現在している指定がクレイジーを指定してしまっているから、クレイジーではなくペイメントというモデルを作成しなければならない。
 
         // クレイジーのデータベース内にあるペイメントファイルに入力した消費データを入力したい。
 
-        $payment->payment = $request->payment; //画面で入力された消費データを代入
-        $payment->save(); //DBに保存
+        $payments->payment = $request->payment; //画面で入力された消費データを代入
+        $payments->created_at_year = $int->$dt->year;
+        $payments->created_at_month = $request->$dt->month;
+        $payments->created_at_day = $request->$dt->day;
+
+
+        $payments->save(); //DBに保存
 
         return redirect()->route('Clazy.create'); //一覧ページにリダイレクト
     }
@@ -94,10 +101,9 @@ class ClazyController extends Controller
 
     public function storeFirst(Request $request)
     {
-        $user = new User(); //Diaryモデルをインスタンス化
-
-        $user->saving = $request->saving; //画面で入力されたタイトルを代入
-        $user->salary = $request->salary; //画面で入力された本文を代入
+        $user = new User();
+        $user->saving = $request->saving; //画面で入力された目標貯金額を代入
+        $user->salary = $request->salary; //画面で入力された給与を代入
         $user->save(); //DBに保存
 
         return redirect()->route('Clazy.firstInformation'); //一覧ページにリダイレクト
@@ -106,7 +112,6 @@ class ClazyController extends Controller
 
 
     // 出力機能  *****************************************************************
-    // サーバーでの処理
 
     public function chart()
     {
@@ -122,9 +127,9 @@ class ClazyController extends Controller
 
         // $payments = Payment::where('userId', $userId)->with('payments')->first();
         $payments = Payment::select(DB::raw('sum(payment) as payment, created_at'))
-            ->whereMonth('created_at', '7')
-            ->groupBy('created_at')
-            ->get();
+                           ->whereMonth('created_at', '7')
+                           ->groupBy('created_at')
+                           ->get();
 
 
         //②データを返す

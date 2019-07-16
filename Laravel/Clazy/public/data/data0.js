@@ -12,7 +12,7 @@ $(function() {
       gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
       gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
 
-  //▼週のデータセット
+  //▼  描画データ  (週)
   let wData = {
     labels: ["MON", "TUE", "WEN", "THE", "FRI", "SAT", "SUN"],
     datasets: [{
@@ -32,7 +32,7 @@ $(function() {
       borderWidth: 2
     }]
   };
-  //▼月のデータセット
+  //▼  描画データ  (月)
   let mData = {
     labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
     datasets: [{
@@ -52,7 +52,7 @@ $(function() {
       borderWidth: 2
     }]
   };
-  //▼描画データセット
+  //▼  描画オプション
   const options = {
     layout: {
       padding: {
@@ -112,12 +112,12 @@ $(function() {
   };
 
 
-  //▼描画データセット
+  //▼  初期  描画
   initDashboardPageCharts(ctx, wData);
 
   chart();
 
-  // ▼（initialize）描画
+  // ▼描画  （initialize）
   function initDashboardPageCharts(ctx , data){
     myChart = new Chart(ctx, {
       type    : 'line',
@@ -125,31 +125,32 @@ $(function() {
       options : options
     });
   }
-
-  //▼（Week）描画
+  //▼ 描画切替  (週)
   function chnageWeekChart(chart) {
     chart.data = wData
     chart.update();
   }
-
-  //▼（Month）描画
+  //▼ 描画切替  (月)
   function changeMonthChart(chart) {
     chart.data = mData
     chart.update();
   }
 
+
+  //▼ 描画データ取得  (Ajax)
   function chart() {
       $.ajax({
           url: 'dashboard/chart',
           type: 'POST',
           dataTyupe: 'json',
 
-          headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }//token送信
+          headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }//（token送信）※metaに設置
       })
       .then(
-          function (res) {
-            //jsonでデータを取得（文字列）
-            //文字列データを配列変換
+          function (res)
+          /************
+           *   成功   *
+           ************/
 
             console.log(res.wData);
 
@@ -160,6 +161,9 @@ $(function() {
             chnageWeekChart(myChart);
           },
           function (error) {
+            /************
+             *   失敗   *
+             ************/
               console.log(error);
           }
       )

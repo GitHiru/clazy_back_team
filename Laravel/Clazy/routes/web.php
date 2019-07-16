@@ -14,7 +14,7 @@
 // Route::get('/', function () { return view('welcome'); }); //(Laravel)初期データ
 
 /*******************************************************
- * 　　　PC
+ *     PC
  *******************************************************/
 // ■ loginページ表示
 Route::get('/', function () { return view('pc.login'); });
@@ -38,7 +38,7 @@ Route::post('dashboard/chart', 'ClazyController@chart');// （chart）
 
 
 /*******************************************************
- *　　　　SP　
+ *    SP
  *******************************************************/
 // ■ (SP)loginページ表示
 Route::get('/sp', function () { return view('sp.login'); });
