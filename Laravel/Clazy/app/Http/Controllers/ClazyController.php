@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use App\Clazy;//(追加) DB接続の為
-use App\Payment;//(追加) DB接続の為
-use App\User;//(追加) DB接続の為
+use Illuminate\Support\Facades\DB;//(追加)chart作成
+use Carbon\Carbon;                //(追加)chart作成
+// use App\Clazy;                 //(追加) DB接続の為
+use App\Payment;                  //(追加) DB接続の為
+use App\User;                     //(追加) DB接続の為
+
 
 class ClazyController extends Controller
 {
@@ -25,9 +28,6 @@ class ClazyController extends Controller
 
 
     // 入力機能  *****************************************************************
-    // dear Hiroto
-    // 恐らく複数のメソッドが予想されるよ！
-
 
     // 初期データを表示するコントローラー
     public function firstInformation()
@@ -106,17 +106,33 @@ class ClazyController extends Controller
 
 
     // 出力機能  *****************************************************************
-    // User毎にWeek＋Monthデータを取得＋chart.jsに配列渡し。
+    // サーバーでの処理
 
     public function chart()
     {
-        //①DBからデータを取得
-        $payments = Payment::all();
-        // $payments = Payment::('id', 'payment')->get();
-        dd($payments);
+        //①データを取得
+        /********************
+         * 年と月の指定（案）
+         *******************/
+        $year = date('y');
+        $month = date('n');
 
-        //②データを整形しViewに返す
-        return view('pc.dashboard');
+        // $userId = \Auth::user()->id;
+        $userId = 1;
+
+        // $payments = Payment::where('userId', $userId)->with('payments')->first();
+        $payments = Payment::select(DB::raw('sum(payment) as payment, created_at'))
+            ->whereMonth('created_at', '7')
+            ->groupBy('created_at')
+            ->get();
+
+
+        //②データを返す
+        $data = ['mData' => [], 'wDdata' => [1, 100, 300, 400]];
+
+        return $data;
+
     }
+
 
 }

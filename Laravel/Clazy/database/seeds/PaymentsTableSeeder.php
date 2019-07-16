@@ -31,7 +31,11 @@ class PaymentsTableSeeder extends Seeder
                 'payment' => $payment['payment'],
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                // 'user_id' => $user->id
+                'created_at_year' => Carbon::now->year.(),
+                'created_at_month' => Carbon::now->month.(),
+                'created_at_dayt' => Carbon::now->day.(),
+                'created_at_week' => Carbon::now->dya0fweek.(),
+                'user_id' => $user->id
             ]);
         }
     }

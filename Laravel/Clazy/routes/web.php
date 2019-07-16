@@ -13,6 +13,9 @@
 
 // Route::get('/', function () { return view('welcome'); }); //(Laravel)初期データ
 
+/*******************************************************
+ * 　　　PC
+ *******************************************************/
 // ■ loginページ表示
 Route::get('/', function () { return view('pc.login'); });
 // ■ firstモーダルページ表示
@@ -20,25 +23,23 @@ Route::get('/modal', function () { return view('pc.modal'); });
 // ■ dashboardページ表示
 Route::get('/dashboard', function () { return view('pc.dashboard'); });
 
-// （chart）サーバーでの処理
-// 直接SQLを記述して、ログイン時のweekデータ７日分＋経過した月合算データを取得してjson形式にして返す
-// Route::post('dashboard/{id}/chart', 'DiaryController@chart');
-
 // ■ ダッシュボードの表示
 Route::get('dashboard', 'ClazyController@firstInformation')->name('Clazy.firstInformation');
-
-// ■ 初期設定モーダルからの投稿処理
+// ■ 初期設定モーダルからの投稿
 Route::post('dashboard', 'ClazyController@storeFirst')->name('Clazy.firstInformation'); // 保存処理
-
-// ■ dashboardページ編集作業(get)
+// ■ dashboardページ編集(get)
 Route::get('{id}/dashboard', 'ClazyController@edit')->name('Clazy.edit'); // 編集画面
-// ■ dashboardページ編集作業(put)
+// ■ dashboardページ編集(put)
 Route::put('{id}/update', 'ClazyController@update')->name('Clazy.update'); //更新処理
 
+// ■ dashboardページチャート描画
+Route::post('dashboard/chart', 'ClazyController@chart');// （chart）
 
-//Route::get('/', 'ClazyController@chartData')->name('top.index');//chartデータ更新
 
 
+/*******************************************************
+ *　　　　SP　
+ *******************************************************/
 // ■ (SP)loginページ表示
 Route::get('/sp', function () { return view('sp.login'); });
 // ■ (SP)トップページ表示

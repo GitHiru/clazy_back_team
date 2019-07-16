@@ -2,16 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset ('img/rogo.png') }}">
-  <!-- ファビコンをナマケモノに変換する。バグってるから写真を変える -->
-  <link rel="icon" type="image/png" href="{{ asset ('img/rogo.png') }}">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>Clazy</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  {{--<!--     Ajax CSRF      -->--}}
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
+  <title>Clazy</title>
+
+  {{--<!--     Fonts and icons     -->--}}
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset ('img/rogo.png') }}">
+  <link rel="icon" type="image/png" href="{{ asset ('img/rogo.png') }}">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <!-- CSS Files -->
+
+  {{--<!-- CSS Files -->--}}
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/now-ui-dashboard.css?v=1.3.0') }}" rel="stylesheet">
   <link href="{{ asset('css/modal.css') }}" rel="stylesheet">
@@ -183,10 +187,10 @@
     </div> -->
     <!-- 給料編集モーダルウィンドウ終わり -->
 
-<!-- メインパネル -->
+{{--<!--   メインパネル   -->--}}
 <div class="main-panel" id="main-panel">
 
-      <!-- チャート切り替えボタン-->
+      {{--<!--   チャート切り替えボタン  -->--}}
       <style>
         .chart-box{position: relative;}
         .chart-row{position:absolute; z-index: 999;right:30px;}
@@ -200,7 +204,7 @@
         </div>
       </div>
 
-      <!-- チャート描画-->
+      {{--<!--   チャート描画  -->--}}
       <div class="panel-header panel-header-lg">
         <canvas id="bigDashboardChart"></canvas>
       </div>
@@ -254,24 +258,18 @@
   </div><!--class="main-panel" id="main-panel"-->
   <!-- ラッパー閉じる -->
 
-  <!--   Core JS Files   -->
+    <!--  JS Files   -->
     <script src="{{ asset('js/core/jquery.min.js') }}" defer></script>
-
-
-  <!-- <script src="../assets/js/modal.js"></script> -->
     <script src="{{ asset('js/calcu.js') }}" defer></script>
     <script src="{{ asset('js/core/popper.min.js') }}" defer></script>
     <script src="{{ asset('js/core/bootstrap.min.js') }}" defer></script>
     <script src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}" defer></script>
     <script src="{{ asset('js/now-ui-dashboard.min.js?v=1.3.0') }}" defer></script>
-
-
-  <!-- Chart JS -->
-  <script src="{{ asset('js/plugins/chartjs.min.js') }}" defer></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script> -->
-  <script src="{{ asset('data/data0.js') }}" defer></script>
-  <script src="{{ asset('js/dashboard.js') }}" defer></script>
-
+    {{--<!--    Chart JS   -->--}}
+    <script src="{{ asset('js/plugins/chartjs.min.js') }}" defer></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script> -->
+    <script src="{{ asset('data/data0.js') }}" defer></script>
+    <script src="{{ asset('js/dashboard.js') }}" defer></script>
 
 </body>
 </html>
