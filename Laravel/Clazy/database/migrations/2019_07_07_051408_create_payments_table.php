@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+
 class CreatePaymentsTable extends Migration
 {
     /**
@@ -17,7 +18,11 @@ class CreatePaymentsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('payment');
             $table->timestamps();
-            $table->integer('user_id');
+            $table->dateTime('created_at_year')->nullable();;
+            $table->dateTime('created_at_month')->nullable();;
+            $table->dateTime('created_at_day')->nullable();;
+            // $table->dateTime('created_at_week');
+            // $table->integer('user_id');
         });
     }
 
