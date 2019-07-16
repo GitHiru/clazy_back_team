@@ -14,7 +14,7 @@
 // Route::get('/', function () { return view('welcome'); }); //(Laravel)初期データ
 
 /*******************************************************
- * (PC)
+ * 　　　PC
  *******************************************************/
 // ■ loginページ表示
 Route::get('/', function () { return view('pc.login'); });
@@ -22,12 +22,23 @@ Route::get('/', function () { return view('pc.login'); });
 Route::get('/modal', function () { return view('pc.modal'); });
 // ■ dashboardページ表示
 Route::get('/dashboard', function () { return view('pc.dashboard'); });
+
+// ■ ダッシュボードの表示
+Route::get('dashboard', 'ClazyController@firstInformation')->name('Clazy.firstInformation');
+// ■ 初期設定モーダルからの投稿
+Route::post('dashboard', 'ClazyController@storeFirst')->name('Clazy.firstInformation'); // 保存処理
+// ■ dashboardページ編集(get)
+Route::get('{id}/dashboard', 'ClazyController@edit')->name('Clazy.edit'); // 編集画面
+// ■ dashboardページ編集(put)
+Route::put('{id}/update', 'ClazyController@update')->name('Clazy.update'); //更新処理
+
+// ■ dashboardページチャート描画
 Route::post('dashboard/chart', 'ClazyController@chart');// （chart）
-Route::get('dashboard', 'ClazyController@firstInformation')->name('Clazy.firstInformation'); // 目標貯金と給料表示処理
+
 
 
 /*******************************************************
- * (SP)
+ *　　　　SP　
  *******************************************************/
 // ■ (SP)loginページ表示
 Route::get('/sp', function () { return view('sp.login'); });

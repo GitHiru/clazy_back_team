@@ -33,8 +33,19 @@ class ClazyController extends Controller
     public function firstInformation()
     {
         $users = User::all();
+        $payments = Payment::whereYear('created_at', '=', 2019)->whereMonth('created_at', '=', 7)->get();
 
-        return view('pc.dashboard',['users' => $users]);
+        $total =0;
+        foreach ($payments as $item) {
+            $total = $total + $item->payment;
+        }
+
+        $free =0;
+        foreach ($users as $user ) {
+            $free = $user->salary - $user->saving-$total;
+        }
+
+        return view('pc.dashboard',['users' => $users, 'total' => $total, 'free' => $free]);
     }
 
     public function create()
@@ -58,11 +69,39 @@ class ClazyController extends Controller
         return redirect()->route('Clazy.create'); //一覧ページにリダイレクト
     }
 
+    public function edit(int $id)
+    {
+        $user = User::find($id);
 
+        return view('pc.dashboard', [
+            'user' => $user,
+        ]);
+    }
 
+    public function update(int $id, Request $request)
+    {
 
+        $user = User::find($id);
 
+        $user->saving = $request->saving; //画面で入力されたタイトルを代入
+        $user->salary = $request->salary; //画面で入力された本文を代入
+        $user->save(); //DBに保存
 
+        return redirect()->route('Clazy.firstInformation'); //一覧ページにリダイレクト
+    }
+
+    // 初期投稿保存処理
+
+    public function storeFirst(Request $request)
+    {
+        $user = new User(); //Diaryモデルをインスタンス化
+
+        $user->saving = $request->saving; //画面で入力されたタイトルを代入
+        $user->salary = $request->salary; //画面で入力された本文を代入
+        $user->save(); //DBに保存
+
+        return redirect()->route('Clazy.firstInformation'); //一覧ページにリダイレクト
+    }
 
 
 
