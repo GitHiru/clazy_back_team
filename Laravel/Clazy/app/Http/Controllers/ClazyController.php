@@ -32,8 +32,12 @@ class ClazyController extends Controller
     // 初期データを表示するコントローラー
     public function firstInformation()
     {
+        $year=date('Y');
+        $month=date('n');
+
         $users = User::all();
-        $payments = Payment::whereYear('created_at', '=', 2019)->whereMonth('created_at', '=', 7)->get();
+         // 今年と今月の値を自動で入力する流れを作成するYEAR(date) = YEAR(NOW()) AND MONTH(date)=MONTH(NOW());
+        $payments = Payment::whereYear('created_at', '=', $year)->whereMonth('created_at', '=', $month)->get();
 
         $total =0;
         foreach ($payments as $item) {
