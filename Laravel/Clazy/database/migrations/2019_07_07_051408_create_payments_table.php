@@ -17,7 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('payment');
             $table->timestamps();
-            // $table->integer('user_id');//log in機能完成後にOPEN
+            $table->integer('user_id');
         });
     }
 
