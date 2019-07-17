@@ -69,10 +69,11 @@
     </header>
     <!-- サイドバー終了 -->
 
-    <!-- start toggle -->
+
+    {{--<!--   start toggle    -->--}}
     <style>
-    .navbar-wrappe{position: relative;}
-    .navbar-toggle{position: absolute; z-index: 999; margin-top:10px;}
+        .navbar-wrappe{position: relative;}
+        .navbar-toggle{position: absolute; z-index: 999; margin-top:10px;}
     </style>
     <nav>
       <div class="navbar-wrappe">
@@ -86,7 +87,7 @@
         </div>
       </div>
     </nav>
-    <!-- end toggle -->
+    {{--<!--   end toggle   -->--}}
 
 
 
@@ -187,89 +188,82 @@
     </div> -->
     <!-- 給料編集モーダルウィンドウ終わり -->
 
-{{--<!--   メインパネル   -->--}}
-<div class="main-panel" id="main-panel">
-
-      {{--<!--   チャート切り替えボタン  -->--}}
-      <style>
-        .chart-box{position: relative;}
-        .chart-row{position:absolute; z-index: 999;right:30px;}
-        .b{margin:10px;}
-        .b:hover{background-color: rgba(255,255,255,0.5;)!important}
-      </style>
-      <div class="chart-box">
-        <div class="row chart-row">
-          <button type="button" id="w" class="b btn btn-outline-light btn-sm col-auto">WEEK</button>
-          <button type="button" id="m" class="b btn btn-outline-light btn-sm col-auto">MONTH</button>
-        </div>
-      </div>
-
-      {{--<!--   チャート描画  -->--}}
-      <div class="panel-header panel-header-lg">
-        <canvas id="bigDashboardChart"></canvas>
-      </div>
-
-    <!-- コンテンツ カードの配置-->
-    <div class="container-fluid content">
-      <div class="row mb-3">
-        <div class="col-lg-4">
-          <div class="card">
-            <h3 class="card-header"><i class="fas fa-coins"></i>入ったお金</h3>
-            <div class="card-body text-warning">
-              <h5 class="card-title py-3"></h5>
-              @foreach ($users as $user)
-              <p class="card-text py-5"><i class="fas fa-yen-sign text-black"></i>{{ $user->salary }}</p>
-              @endforeach
+    {{--<!--   main panel   -->--}}
+    <div class="main-panel" id="main-panel">
+        {{--<!--   チャート切り替えボタン  -->--}}
+        <style>
+            .chart-box{position: relative;}
+            .chart-row{position:absolute; z-index: 999;right:30px;}
+            .b{margin:10px;}
+            .b:hover{background-color: rgba(255,255,255,0.5;)!important}
+          </style>
+        <div class="chart-box">
+            <div class="row chart-row">
+              <button type="button" id="w" class="b btn btn-outline-light btn-sm col-auto">WEEK</button>
+              <button type="button" id="m" class="b btn btn-outline-light btn-sm col-auto">MONTH</button>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card">
-            <h3 class="card-header"><i class="fas fa-hand-holding-usd"></i>使ったお金</h3>
-            <div class="card-body text-warning">
-              <h5 class="card-title py-3"></h5>
-              <p class="card-text py-5"><i class="fas fa-yen-sign text-black"></i>{{ $total }}</p>
-            </div>
+
+        {{--<!--   チャート描画  -->--}}
+        <div class="panel-header panel-header-lg">
+            <canvas id="bigDashboardChart"></canvas>
           </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card">
-            <h3 class="card-header"><i class="fas fa-user-plus"></i>自由に使えるお金</h3>
-            <div class="card-body text-warning">
-              <h5 class="card-title py-3"></h5>
-              <p class="card-text py-5"><i class="fas fa-yen-sign text-black"></i>{{ $free }}</p>
+
+        {{--<!--   コンテンツ カードの配置  -->--}}
+        <div class="container-fluid content">
+              <div class="row mb-3">
+                <div class="col-lg-4">
+                  <div class="card">
+                    <h3 class="card-header"><i class="fas fa-coins"></i>入ったお金</h3>
+                    <div class="card-body text-warning">
+                      <h5 class="card-title py-3"></h5>
+                      @foreach ($users as $user)
+                      <p class="card-text py-5"><i class="fas fa-yen-sign text-black"></i>{{ $user->salary }}</p>
+                      @endforeach
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="card">
+                    <h3 class="card-header"><i class="fas fa-hand-holding-usd"></i>使ったお金</h3>
+                    <div class="card-body text-warning">
+                      <h5 class="card-title py-3"></h5>
+                      <p class="card-text py-5"><i class="fas fa-yen-sign text-black"></i>{{ $total }}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="card">
+                    <h3 class="card-header"><i class="fas fa-user-plus"></i>自由に使えるお金</h3>
+                    <div class="card-body text-warning">
+                      <h5 class="card-title py-3"></h5>
+                      <p class="card-text py-5"><i class="fas fa-yen-sign text-black"></i>{{ $free }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+        {{--<!--   コンテンツ・カード終わり   -->--}}
+
+        {{--<!--  footer  -->--}}
+        <footer class="footer">
+            <div class="container-fluid">会社概要:Clazy</div>
+          </footer>
     </div>
-          <!-- コンテンツ・カード終わり -->
+    {{--<!-- end mein panel -->--}}
 
-        <!-- </div> -->
-      <!-- </div> -->
-
-
-      <!-- フッター -->
-      <footer class="footer">
-        <div class="container-fluid">会社概要:Clazy</div>
-      </footer>
-
-
-  </div><!--class="main-panel" id="main-panel"-->
-  <!-- ラッパー閉じる -->
-
-    <!--  JS Files   -->
+    {{--<!--  JS Files   -->--}}
     <script src="{{ asset('js/core/jquery.min.js') }}" defer></script>
     <script src="{{ asset('js/calcu.js') }}" defer></script>
     <script src="{{ asset('js/core/popper.min.js') }}" defer></script>
     <script src="{{ asset('js/core/bootstrap.min.js') }}" defer></script>
     <script src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}" defer></script>
     <script src="{{ asset('js/now-ui-dashboard.min.js?v=1.3.0') }}" defer></script>
-    {{--<!--    Chart JS   -->--}}
-    <script src="{{ asset('js/plugins/chartjs.min.js') }}" defer></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script> -->
-    <script src="{{ asset('data/data0.js') }}" defer></script>
     <script src="{{ asset('js/dashboard.js') }}" defer></script>
+    {{--<!--    Chart JS   -->--}}
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script> -->
+    <script src="{{ asset('js/plugins/chartjs.min.js') }}" defer></script>
+    <script src="{{ asset('js/chartdata.js') }}" defer></script>
 
 </body>
 </html>

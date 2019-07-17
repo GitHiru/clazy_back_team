@@ -63,12 +63,10 @@ class ClazyController extends Controller
 
         // 現在している指定がクレイジーを指定してしまっているから、クレイジーではなくペイメントというモデルを作成しなければならない。
 
-        // クレイジーのデータベース内にあるペイメントファイルに入力した消費データを入力したい。
-
         $payments->payment = $request->payment; //画面で入力された消費データを代入
-        $payments->created_at_year = $int->$dt->year;
-        $payments->created_at_month = $request->$dt->month;
-        $payments->created_at_day = $request->$dt->day;
+        $payments->created_at_year = $dt->year;
+        $payments->created_at_month = $dt->month;
+        $payments->created_at_day = $dt->day;
 
 
         $payments->save(); //DBに保存
@@ -115,25 +113,52 @@ class ClazyController extends Controller
 
     public function chart()
     {
-        //①データを取得
-        /********************
-         * 年と月の指定（案）
-         *******************/
-        $year = date('y');
-        $month = date('n');
+        //＃データを取得
+
+        $dt = Carbon::now();
+        $year = $dt->year;
+        $month = $dt->month;// date('n')でも取得可
+        $startDate = $dt->day - $dt->dayOfWeek;//e.g. 18 - 4 = 14
+        $endDate = $dt->day + (6 - $dt->dayOfWeek);//e.g. 18 + (6 - 4 ) = 20
 
         // $userId = \Auth::user()->id;
-        $userId = 1;
 
         // $payments = Payment::where('userId', $userId)->with('payments')->first();
-        $payments = Payment::select(DB::raw('sum(payment) as payment, created_at'))
-                           ->whereMonth('created_at', '7')
-                           ->groupBy('created_at')
-                           ->get();
+        $mDataTmp = Payment::select(DB::raw('sum(payment) as payment, created_at_month'))
+                           // ->where('user_id', $userId)
+                           ->groupBy('created_at_month')
+                           ->orderBy('created_at_month')
+                           ->get()
+                           ->toArray();
 
 
-        //②データを返す
-        $data = ['mData' => [], 'wDdata' => [1, 100, 300, 400]];
+        $wDataTmp = Payment::select(DB::raw('sum(payment) as payment, created_at_day'))
+                          // ->where('user_id', $userId)
+                          ->where('created_at_year', $year)
+                          ->where('created_at_month', $month)
+                          ->whereBetween('created_at_day', [$startDate, $endDate])//e.g.[1, 100]配列渡し
+                          ->groupBy('created_at_day')
+                          ->orderBy('created_at_day')
+                          ->get()
+                          ->toArray();
+
+        // ＃データを加工（二次元配列を配列に）
+        for($i = 1; $i <= 12; $i++) {
+            $mData[] =
+        }
+
+        // $mData =
+
+        // $wData =
+        dd($wDataTmp);
+        // [
+        //     1 => 4,
+        //     2 => 9
+        // ];
+
+
+        // ＃データを返す
+        $data = ['mData' => $mData, 'wDdata' => $wData];
 
         return $data;
 
