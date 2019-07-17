@@ -11,6 +11,10 @@
 |
 */
 
+// SNS認証のためのルートを2本設定
+Route::get('login/{provider}',          'Auth\SocialAccountController@redirectToProvider');
+Route::get('login/{provider}/callback', 'Auth\SocialAccountController@handleProviderCallback');
+
 // Route::get('/', function () { return view('welcome'); }); //(Laravel)初期データ
 
 Route::get('/', function () { return view('pc.login'); }); //log inページを出力
