@@ -14,7 +14,7 @@ $(function() {
 
   //▼  描画データ  (週)
   let wData = {
-    labels: ["MON", "TUE", "WEN", "THE", "FRI", "SAT", "SUN"],
+    labels: ["SUN", "MON", "TUE", "WEN", "THE", "FRI", "SAT"],
     datasets: [{
       data:[],
       label: "Data",
@@ -147,7 +147,7 @@ $(function() {
           headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }//（token送信）※metaに設置
       })
       .then(
-          function (res)
+          function (res){
           /************
            *   成功   *
            ************/

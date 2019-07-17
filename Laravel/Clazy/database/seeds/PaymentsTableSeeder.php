@@ -34,7 +34,7 @@ class PaymentsTableSeeder extends Seeder
                 'created_at_year' => $dt->year,
                 'created_at_month' => $dt->month,
                 'created_at_day' => $dt->day,
-                // 'created_at_week' => $dt->day0fWeek,
+                // 'created_at_week' => $dt->dayOfWeek,
                 // 'user_id' => $user->id
             ]);
         }

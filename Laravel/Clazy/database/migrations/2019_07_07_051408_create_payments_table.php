@@ -18,10 +18,10 @@ class CreatePaymentsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('payment');
             $table->timestamps();
-            $table->dateTime('created_at_year')->nullable();;
-            $table->dateTime('created_at_month')->nullable();;
-            $table->dateTime('created_at_day')->nullable();;
-            // $table->dateTime('created_at_week');
+            $table->integer('created_at_year');
+            $table->integer('created_at_month');
+            $table->integer('created_at_day');
+            // $table->integer('created_at_week');
             // $table->integer('user_id');
         });
     }
