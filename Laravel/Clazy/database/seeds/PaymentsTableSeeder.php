@@ -14,7 +14,7 @@ class PaymentsTableSeeder extends Seeder
     public function run()
     {
         $user = DB::table('users')->first();
-
+        $dt = Carbon::now();
         $payments = [
             ['payment' => '1000',],
             ['payment' => '450',],
@@ -29,9 +29,13 @@ class PaymentsTableSeeder extends Seeder
         foreach ($payments as $payment) {
             DB::table('payments')->insert([
                 'payment' => $payment['payment'],
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-                'user_id' => $user->id
+                'created_at' => $dt,
+                'updated_at' => $dt,
+                'created_at_year' => $dt->year,
+                'created_at_month' => $dt->month,
+                'created_at_day' => $dt->day,
+                // 'created_at_week' => $dt->dayOfWeek,
+                // 'user_id' => $user->id
             ]);
         }
     }
