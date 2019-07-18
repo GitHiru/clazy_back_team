@@ -15,7 +15,7 @@
     <div align="center">
         <a href=""><img src="{{ asset ('img/login_google.png') }}" alt=""></a>
         <br>
-        <a href=""><img src="{{ asset ('img/login_facebook.png') }}" alt=""></a>
+        <a href="/login/login_facebook"><img src="{{ asset ('img/login_facebook.png') }}" alt=""></a>
     </div>
 
 </body>

@@ -14,6 +14,21 @@
 // Route::get('/', function () { return view('welcome'); }); //(Laravel)初期データ
 
 /*******************************************************
+ *     log in
+ *******************************************************/
+// SNS認証のためのルートを2本設定
+// Route::get('login/{provider}',          'Auth\SocialAccountController@redirectToProvider');
+// Route::get('login/{provider}/callback', 'Auth\SocialAccountController@handleProviderCallback');
+
+
+// ■ ログイン機能
+Route::group(['middleware' => 'auth'], function() {
+
+});
+
+
+
+/*******************************************************
  *     PC
  *******************************************************/
 // ■ loginページ表示
