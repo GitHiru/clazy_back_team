@@ -142,7 +142,7 @@ $(function() {
       $.ajax({
           url: 'dashboard/chart',
           type: 'POST',
-          dataTyupe: 'json',
+          dataType: 'json',
 
           headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }//（token送信）※metaに設置
       })
@@ -151,12 +151,13 @@ $(function() {
           /************
            *   成功   *
            ************/
+            let wObj = res['wData'];
+            let wArr = Object.keys(wObj).map(function (key) { return wObj[key] });
+            wData.datasets[0].data = wArr;
 
-            console.log(res.wData);
-
-            wData.datasets[0].data = [1, 4, 900];
-
-            mData.datasets[0].data = res.mData;
+            let mObj = res['mData'];
+            let mArr = Object.keys(mObj).map(function (key) { return mObj[key] });
+            mData.datasets[0].data = mArr;
 
             chnageWeekChart(myChart);
           },
