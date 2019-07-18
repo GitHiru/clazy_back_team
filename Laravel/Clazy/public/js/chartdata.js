@@ -120,7 +120,7 @@ $(function() {
   // ▼描画  （initialize）
   function initDashboardPageCharts(ctx , data){
     myChart = new Chart(ctx, {
-      type    : 'line',
+      type    : 'bar',
       data    : data,
       options : options
     });
@@ -154,7 +154,7 @@ $(function() {
 
             console.log(res.wData);
 
-            wData.datasets[0].data = [1, 4, 900];
+            wData.datasets[0].data = [340, 350, 900];
 
             mData.datasets[0].data = res.mData;
 

@@ -18,7 +18,7 @@ class ClazyController extends Controller
     public function createTop()
     {
         // views/diaries/create.blade.phpを表示する
-
+        // ここにヒロト＋みる
         return view('sp.top');
     }
 
