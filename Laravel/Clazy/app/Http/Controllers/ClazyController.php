@@ -23,9 +23,9 @@ class ClazyController extends Controller
     }
 
 
-  
 
-  
+
+
 // APIだから後で
 //  /**
 //      * Redirect the user to the GitHub authentication page.
@@ -158,7 +158,6 @@ class ClazyController extends Controller
 
     public function chart()
     {
-        //＃データを取得
 
         $dt = Carbon::now();
         $year = $dt->year;
@@ -169,12 +168,13 @@ class ClazyController extends Controller
         // $userId = \Auth::user()->id;
 
         // $payments = Payment::where('userId', $userId)->with('payments')->first();
+
         $mDataTmp = Payment::select(DB::raw('sum(payment) as payment, created_at_month'))
             // ->where('user_id', $userId)
             ->groupBy('created_at_month')
             ->orderBy('created_at_month')
-            ->pluck('payment', 'created_at_month')
-            ->toArray();
+            ->pluck('payment', 'created_at_month') //created_at_monthをkeyにデータ取得
+            ->toArray();//配列整形
 
 
         $wDataTmp = Payment::select(DB::raw('sum(payment) as payment, created_at_day'))
@@ -191,7 +191,7 @@ class ClazyController extends Controller
         $mData = [];
         $months = range(1, 12);
         foreach ($months as $month) {
-            $mData[$month] = $mDataTmp[$month] ?? 0;
+            $mData[$month] = $mDataTmp[$month] ?? 0; //false（データが無い）なら０を返す
         }
 
         $wData = [];
