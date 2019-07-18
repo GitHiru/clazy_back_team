@@ -22,7 +22,7 @@ class CreatePaymentsTable extends Migration
             $table->integer('created_at_month');
             $table->integer('created_at_day');
             // $table->integer('created_at_week');
-            // $table->integer('user_id');
+            $table->integer('user_id');
         });
     }
 
