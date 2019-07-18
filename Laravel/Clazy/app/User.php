@@ -10,6 +10,11 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+// LinkedSocialAccountsは1対多のリレーションにする
+    public function accounts(){
+        return $this->hasMany('App\LinkedSocialAccount');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

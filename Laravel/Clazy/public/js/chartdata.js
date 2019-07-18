@@ -120,7 +120,7 @@ $(function() {
   // ▼描画  （initialize）
   function initDashboardPageCharts(ctx , data){
     myChart = new Chart(ctx, {
-      type    : 'line',
+      type    : 'bar',
       data    : data,
       options : options
     });
@@ -155,9 +155,11 @@ $(function() {
             let wArr = Object.keys(wObj).map(function (key) { return wObj[key] });
             wData.datasets[0].data = wArr;
 
+
             let mObj = res['mData'];
             let mArr = Object.keys(mObj).map(function (key) { return mObj[key] });
             mData.datasets[0].data = mArr;
+
 
             chnageWeekChart(myChart);
           },
