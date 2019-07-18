@@ -22,9 +22,11 @@
 
 
 // ■ ログイン機能
-Route::group(['middleware' => 'auth'], function() {
-
-});
+// Route::group(['middleware' => 'auth'], function() {
+//
+// });
+//
+// Auth::routes();
 
 
 
