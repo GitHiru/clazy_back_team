@@ -16,44 +16,45 @@ class ClazyController extends Controller
 
 
     // ログイン機能 **************************************************************
-    // dear Mau
-    // ログイン機能を実施。
+     // dear Mau
+     // ログイン機能を実施。
 
- /**
-     * Redirect the user to the GitHub authentication page.
-     *
-     * @return Response
-     */
-    public function redirectToProvider($provider)
-    {
-        // ユーザーをSNS認証エンドポイントへリダイレクト
-        return \Socialite::driver($provider)->redirect();
-    }
+// APIだから後で
+//  /**
+//      * Redirect the user to the GitHub authentication page.
+//      *
+//      * @return Response
+//      */
+//     public function redirectToProvider($provider)
+//     {
+//         // ユーザーをSNS認証エンドポイントへリダイレクト
+//         return \Socialite::driver($provider)->redirect();
+//     }
 
-    /**
-     * Obtain the user information
-     *
-     * @return Response
-     */
-    public function handleProviderCallback(\App\SocialAccountsService $accountService, $provider)
-    {
+//     /**
+//      * Obtain the user information
+//      *
+//      * @return Response
+//      */
+//     public function handleProviderCallback(\App\SocialAccountsService $accountService, $provider)
+//     {
 
-        try {
-            $user = \Socialite::with($provider)->user();
-        } catch (\Exception $e) {
-            return redirect('/login');
-        }
+//         try {
+//             $user = \Socialite::with($provider)->user();
+//         } catch (\Exception $e) {
+//             return redirect('/login');
+//         }
 
-        $authUser = $accountService->findOrCreate(
-            $user,
-            $provider
-        );
+//         $authUser = $accountService->findOrCreate(
+//             $user,
+//             $provider
+//         );
 
-        auth()->login($authUser, true);
+//         auth()->login($authUser, true);
 
-        return redirect()->to('/home');
-    }
-}
+//         return redirect()->to('/home');
+//     }
+// }
 
 
 
