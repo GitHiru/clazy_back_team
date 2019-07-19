@@ -151,14 +151,14 @@ $(function() {
           /************
            *   成功   *
            ************/
-            let wObj = res['wData'];//連想配列で受ける
+            let wObj = res['wData'];//PHPから連想配列で受ける
             let wArr = Object.keys(wObj).map(function (key) { return wObj[key] });//配列に変換
             wData.datasets[0].data = wArr;
 
             let mObj = res['mData'];
             let mArr = Object.keys(mObj).map(function (key) { return mObj[key] });
             mData.datasets[0].data = mArr;
-            
+
             chnageWeekChart(myChart);
             chnageMonthChart(myChart);
           },
