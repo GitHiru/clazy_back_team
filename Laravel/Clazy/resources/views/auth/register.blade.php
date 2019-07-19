@@ -3,7 +3,7 @@
 @section('content')
     {{--<!-- logo -->--}}
     <div align="center">
-      <a href="{{-- route('top') --}}"><img src="{{ asset('img/logo.png') }}"></a>
+      <a href="{{ route('login.top') }}"><img src="{{ asset('img/logo.png') }}"></a>
     </div>
 
     <hr style="width: 50%; border:0;border-top:2px  solid grey;">

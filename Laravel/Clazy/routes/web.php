@@ -17,7 +17,7 @@
  *     PC + SP 共通
  *******************************************************/
 // ■ TOPページ 表示(ログイン＋新規登録画面遷移元)
-Route::get('/', function () { return view('top'); });
+Route::get('/', function () { return view('top'); })->name('login.top');
 
 // ■ SNS認証ログイン
 // Route::get('login/{provider}',          'Auth\SocialAccountController@redirectToProvider');
@@ -31,10 +31,10 @@ Route::group(['middleware' => 'auth'], function() {
      *    SP
      *******************************************************/
     // ■ (SP)トップページ 表示
-    Route::get('/sp', 'ClazyController@createTop')->name('Clazy.top');
+    Route::get('/sp', function () { return view('sp.top'); })->name('Clazy.top');
     // ■ (SP)電卓ページ 表示
-    Route::get('/create', 'ClazyController@create')->name('Clazy.create'); // 投稿画面
-    Route::post('/create', 'ClazyController@store')->name('Clazy.create'); // 保存処理
+    Route::get('create', 'ClazyController@create')->name('Clazy.create'); // 投稿画面
+    Route::post('create', 'ClazyController@store')->name('Clazy.create'); // 保存処理
 
 
 
