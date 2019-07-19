@@ -17,9 +17,7 @@ class ClazyController extends Controller
     // 一旦授業のログイン機能を実施。その後はtrelloにある他のAPIでログインを試みる!
     public function createTop()
     {
-        // views/diaries/create.blade.phpを表示する
-        // ここにヒロト＋みる
-        return view('sp.top');
+        //
     }
 
 
@@ -166,7 +164,7 @@ class ClazyController extends Controller
         $endDate = $dt->day + (6 - $dt->dayOfWeek); //e.g. 18 + (6 - 4 ) = 20
 
         // $userId = \Auth::user()->id;
-
+        //
         // $payments = Payment::where('userId', $userId)->with('payments')->first();
 
         $mDataTmp = Payment::select(DB::raw('sum(payment) as payment, created_at_month'))
@@ -202,7 +200,7 @@ class ClazyController extends Controller
         }
 
         return ['mData' => $mData, 'wData' => $wData];
-        
+
 
     }
 }
