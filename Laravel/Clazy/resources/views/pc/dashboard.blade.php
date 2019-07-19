@@ -95,8 +95,8 @@
     <div class="modal fade" id="modal-2">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-          <form action="{{ route('Clazy.firstInformation') }}" method="POST">
-                    @csrf
+          <!-- <form action="{{ route('Clazy.firstInformation') }}" method="POST">
+                    @csrf -->
           <!-- モーダルウィンドウのコンテンツ開始 -->
           <h4>最初に以下の値を入力してね</h4>
           <h3>
