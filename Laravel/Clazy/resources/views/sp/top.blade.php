@@ -28,6 +28,7 @@
     <input id="sbox1" id="s" name="s" type="text" style="width: 800px; height: 60px;" placeholder="使ったお金を入力してね（笑）" />
   </a>
   </div>
+
 <!-- 下のフォント達 -->
 <!-- <div align="center" style="margin-top: 770px;">
   <table border="0">
