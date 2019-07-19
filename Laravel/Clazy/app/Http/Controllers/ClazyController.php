@@ -202,6 +202,7 @@ class ClazyController extends Controller
         }
 
         return ['mData' => $mData, 'wData' => $wData];
+        
 
     }
 }
