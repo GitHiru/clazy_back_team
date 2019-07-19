@@ -1,32 +1,59 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <title>input</title>
-  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-  <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/sp_input_style.css') }}" rel="stylesheet">
-  <script src="{{ asset('js/sp_input_style.js') }}" defer></script>
-  <script src="{{ asset('js/core/bootstrap.min.js') }}" defer></script>
-</head>
-<body>
-  <!-- アカウント表示 -->
-  <div style="text-align: right; margin-top: 30px; margin-right: 30px;">
+@extends('layouts.app')
+
+@section('content')
+  {{--<!--   アカウント表示   -->--}}
+  <!-- <div style="text-align: right; margin-top: 30px; margin-right: 30px;">
     <a href="">
       <i class="fas fa-user-circle fa-7x"></i>
     </a>
-  </div>
+  </div> -->
+  <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+      <div class="container">
+          <!-- <a class="navbar-brand" href="{{ url('/') }}">
+              {{ config('app.name', '') }}
+          </a> -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <!-- Right Side Of Navbar -->
+              <ul class="navbar-nav ml-auto">
+                  <!-- Authentication Links -->
+                      <li class="nav-item dropdown">
+                          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                              {{--Auth::user()->name --}} <span class="caret"></span>
+                          </a>
 
-  <!-- ロゴ -->
+                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="{{ route('logout') }}"
+                                 onclick="event.preventDefault();
+                                               document.getElementById('logout-form').submit();">
+                                  {{ __('ろぐあうと') }}
+                              </a>
+
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                  @csrf
+                              </form>
+                          </div>
+                      </li>
+              </ul>
+          </div>
+
+      </div>
+  </nav>
+
+
+  {{--<!--   ロゴ   -->--}}
   <div class="box">
-    <div style="margin-left:90px; margin-top:280px; text-align:center;">
-      <img src="{{ asset ('img/sp_logo.png') }}">
-    </div>
-  <!-- 入力バー -->
-  <a href="{{ route('Clazy.create') }}">
-  <form id="form1" action="自分のサイトURL" method="get" style="text-align: center;">
-    <input id="sbox1" id="s" name="s" type="text" style="width: 800px; height: 60px;" placeholder="使ったお金を入力してね（笑）" />
-  </a>
+      <div style="margin-left:90px; margin-top:280px; text-align:center;">
+          <img src="{{ asset ('img/sp_logo.png') }}">
+      </div>
+
+      <div class="">
+          <a href="{{ route('Clazy.create') }}">
+              <input id="sbox1" id="s" name="s" type="text" style="width: 800px; height: 60px;" placeholder="使ったお金を入力（笑）" />
+          </a>
+      </div>
   </div>
 
 <!-- 下のフォント達 -->
@@ -39,6 +66,4 @@
     </tr>
   </table>
 </div> -->
-
-</body>
-</html>
+@section('content')
