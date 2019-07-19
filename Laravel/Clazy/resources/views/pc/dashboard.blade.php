@@ -7,7 +7,7 @@
   {{--<!--     Ajax CSRF      -->--}}
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>Clazy</title>
+  <title>Clazy-管理画面-</title>
 
   {{--<!--     Fonts and icons     -->--}}
   <link rel="apple-touch-icon" sizes="76x76" href="{{ asset ('img/rogo.png') }}">

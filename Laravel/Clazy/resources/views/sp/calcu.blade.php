@@ -15,17 +15,15 @@
     <script src="{{ asset('js/calcu.js') }}" defer></script>
 
 
-    <title>Document</title>
+    <title>Clazy -レジ-</title>
 </head>
-
-<!-- どの様に電卓画面での作業を構築するかを考える -->
 
 <body>
     <div class="calc">
         <a href="{{ route('Clazy.top') }}" class="btn btn-warning btn-block">ホーム画面へ</a>
       <form onsubmit="addValue()" action="{{ route('Clazy.create') }}" method="POST">
                     @csrf
-　　　　　　　　　　　　<div class="form-group">
+                    <div class="form-group">
                         <input id="payment" name="payment" type="hidden" />
                         <!-- 電卓の表示部分 -->
                         <div class="value-text" id="valueInput">
@@ -36,17 +34,6 @@
                         </div>
                         <!-- 電卓の表示部分終了 -->
                     </div>
-
-
-                    <!-- 今のままだと電卓で入力された値を入力画面に拾うという処理ができていないから、その処理をどうすれば良いかを聞く -->
-
-
-                    <!-- この部分をテキスト化する事で消費データを送信できる様にしたい。 -->
-　　　　　　　　　　　　　　　　　<!-- 電卓の上の表示部分 -->
-                            <!-- <div class="value-text" id="valueInput">
-                                <p id="value-display"></p>
-                            </div> -->
-
 
         <table class="table-buttom">
             <tbody>
@@ -135,14 +122,11 @@
             </tbody>
         </table>
 
-　　　　　<!-- 消費データの送信ボタンを追加 -->
-　　　　　<div class="text-center">
-                        <button type="submit" class="btn btn-warning">使ったお金を送信</button>
-                    </div>
-　　　　　<!-- 消費データの入力終了 -->
+        {{--<!-- 消費データの送信ボタンを追加 -->--}}
+        <div class="text-center">
+            <button type="submit" class="btn btn-warning">使ったお金を送信</button>
+        </div>
 
-
-        
       </form>
     </div>
 
@@ -151,8 +135,8 @@
             let value = document.getElementById("value-display").innerText;
             document.getElementById("payment").value = value;
         }
-        
     </script>
+
 </body>
 
 </html>
