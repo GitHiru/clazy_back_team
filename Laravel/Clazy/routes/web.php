@@ -34,14 +34,14 @@
  *     PC
  *******************************************************/
 // ■ loginページ表示
-Route::get('/', function () { return view('pc.login'); });
+// Route::get('/', function () { return view('pc.login'); });
 // ■ firstモーダルページ表示
 Route::get('/modal', function () { return view('pc.modal'); });
 // ■ dashboardページ表示
-Route::get('/dashboard', function () { return view('pc.dashboard'); });
+// Route::get('/dashboard', function () { return view('pc.dashboard'); });
 
 // ■ ダッシュボードの表示
-Route::get('dashboard', 'ClazyController@firstInformation')->name('Clazy.firstInformation');
+Route::get('/', 'ClazyController@firstInformation')->name('Clazy.firstInformation');
 // ■ 初期設定モーダルからの投稿
 Route::post('dashboard', 'ClazyController@storeFirst')->name('Clazy.firstInformation'); // 保存処理
 // ■ dashboardページ編集(get)
@@ -64,3 +64,5 @@ Route::get('sp/top', 'ClazyController@createTop')->name('Clazy.top');
 // ■ (SP)電卓ページ表示
 Route::get('create', 'ClazyController@create')->name('Clazy.create'); // 投稿画面
 Route::post('create', 'ClazyController@store')->name('Clazy.create'); // 保存処理
+
+Auth::routes();
