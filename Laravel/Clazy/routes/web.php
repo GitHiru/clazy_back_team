@@ -14,19 +14,30 @@
 // Route::get('/', function () { return view('welcome'); }); //(Laravel)初期データ
 
 /*******************************************************
- *     log in
+ *     PC + SP 共通
  *******************************************************/
-// SNS認証のためのルートを2本設定
+// ■ TOPページ 表示(ログイン＋新規登録画面遷移元)
+Route::get('/', function () { return view('top'); });
+
+// ■ SNS認証ログイン
 // Route::get('login/{provider}',          'Auth\SocialAccountController@redirectToProvider');
 // Route::get('login/{provider}/callback', 'Auth\SocialAccountController@handleProviderCallback');
 
-// ■ ログイン機能
+
+
+// ■ ログイン
 Route::group(['middleware' => 'auth'], function() {
     /*******************************************************
-     *     PC + SP 共通
+     *    SP
      *******************************************************/
-    // ■ loginページ 表示
-    Route::get('/', function () { return view('pc.login0'); });
+    // ■ (SP)loginページ 表示
+    // Route::get('/sp', function () { return view('sp.login'); });
+
+    // ■ (SP)トップページ 表示
+    Route::get('/sp/top', 'ClazyController@createTop')->name('Clazy.top');
+    // ■ (SP)電卓ページ 表示
+    Route::get('/create', 'ClazyController@create')->name('Clazy.create'); // 投稿画面
+    Route::post('/create', 'ClazyController@store')->name('Clazy.create'); // 保存処理
 
 
 
@@ -43,20 +54,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::put('/{id}/update', 'ClazyController@update')->name('Clazy.update'); //更新処理
     // ■ dashboardページ チャート描画
     Route::post('/dashboard/chart', 'ClazyController@chart');// （chart）
-
-
-
-    /*******************************************************
-     *    SP
-     *******************************************************/
-    // ■ (SP)loginページ 表示
-    // Route::get('/sp', function () { return view('sp.login'); });
-
-    // ■ (SP)トップページ 表示
-    Route::get('/sp/top', 'ClazyController@createTop')->name('Clazy.top');
-    // ■ (SP)電卓ページ 表示
-    Route::get('/create', 'ClazyController@create')->name('Clazy.create'); // 投稿画面
-    Route::post('/create', 'ClazyController@store')->name('Clazy.create'); // 保存処理
 });
 
 Auth::routes();
