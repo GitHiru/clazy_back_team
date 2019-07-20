@@ -1,50 +1,61 @@
 @extends('layouts.app')
 
 @section('content')
-  {{--<!--   アカウント表示   -->--}}
-  <!-- <div style="text-align: right; margin-top: 30px; margin-right: 30px;">
-    <a href="">
-      <i class="fas fa-user-circle fa-7x"></i>
-    </a>
-  </div> -->
-  <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-      <div class="container">
-          <!-- <a class="navbar-brand" href="{{ url('/') }}">
-              {{ config('app.name', '') }}
-          </a> -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+
+{{--<!--   nav   -->--}}
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <div class="container">
+          {{--<!--  Home -->--}}
+          <a class="navbar-brand" href="{{ url('/') }}">
+              <!-- {{ config('app.name', 'Clazy') }} -->
+          </a>
+
+          {{--<!--  hamburger toggle -->--}}
+          <button class="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="{{ __('Toggle navigation') }}">
               <span class="navbar-toggler-icon"></span>
           </button>
+
+          {{--<!--  hamburger toggle elements -->--}}
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <!-- Right Side Of Navbar -->
               <ul class="navbar-nav ml-auto">
-                  <!-- Authentication Links -->
-                      <li class="nav-item dropdown">
+                  <li class="nav-item dropdown">
+                          <i class="fas fa-user-circle fa-7x"></i>
+
                           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                              {{--Auth::user()->name --}} <span class="caret"></span>
+                              {{ Auth::user()->name }} <span class="caret"></span>
                           </a>
 
-                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="{{ route('logout') }}"
-                                 onclick="event.preventDefault();
-                                               document.getElementById('logout-form').submit();">
-                                  {{ __('ろぐあうと') }}
-                              </a>
+                          <a class="dropdown-item"
+                             href="{{ route('logout') }}"
+                             onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                             {{ __('ろぐあうと') }}
+                          </a>
+                          <form id     ="logout-form"
+                                action ="{{ route('logout') }}"
+                                method ="POST"
+                                style  ="display: none;">
+                              @csrf
+                          </form>
 
-                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                  @csrf
-                              </form>
-                          </div>
+                          <!-- <a class="aaa" href=""><i class="fas fa-external-link-alt fa-7x"></i></a> -->
+                          <a class="dropdown-item"
+                             href="{{ route('Clazy.firstInformation') }}">
+                             {{ __('かんりがめん') }}
+                          </a>
                       </li>
               </ul>
           </div>
-
       </div>
-  </nav>
+</nav>
 
-
-  {{--<!--   ロゴ   -->--}}
-  <div class="box">
+{{--<!--   logo   -->--}}
+<div class="box container">
       <div style="margin-left:90px; margin-top:280px; text-align:center;">
           <img src="{{ asset ('img/sp_logo.png') }}">
       </div>
@@ -55,6 +66,7 @@
           </a>
       </div>
   </div>
+
 
 <!-- 下のフォント達 -->
 <!-- <div align="center" style="margin-top: 770px;">
