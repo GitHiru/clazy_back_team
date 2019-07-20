@@ -151,8 +151,8 @@ $(function() {
           /************
            *   成功   *
            ************/
-            let wObj = res['wData'];//PHPから連想配列で受ける
-            let wArr = Object.keys(wObj).map(function (key) { return wObj[key] });//配列に変換
+            let wObj = res['wData']; //Recive data from PHP in aossciative array
+            let wArr = Object.keys(wObj).map(function (key) { return wObj[key] });//Convert to array
             wData.datasets[0].data = wArr;
 
             let mObj = res['mData'];
