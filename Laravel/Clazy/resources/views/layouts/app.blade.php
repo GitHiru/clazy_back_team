@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    {{--<!--   SEO meta    -->--}}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', '') }}</title>
 
-    <!-- Scripts -->
+    {{--<!--   CSRF Token   -->--}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    {{--<!--   Scripts   -->--}}
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/sp_input_style.js') }}" defer></script>
     <script src="{{ asset('js/core/bootstrap.min.js') }}" defer></script>
 
-    <!-- Fonts -->
+    {{--<!--    Fonts   -->--}}
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
-    <!-- Styles -->
+    {{--<!--   Styles   -->--}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sp_input_style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
+    {{--<!-- PWA -->--}}
+    <link rel="manifest" href="/manifest.json">
+    <script src="{{ asset('js/main.js') }}" ></script>
+
+    {{--<!-- Google tags -->--}}
+
 </head>
 <body>
     <div id="app">
