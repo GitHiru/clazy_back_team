@@ -103,6 +103,7 @@ class ClazyController extends Controller
         return view('pc.dashboard', ['salary' => $salary, 'saving' => $saving, 'total' => $total, 'free' => $free]);
     }
 
+
     // 電卓画面の表示をする関数
     public function create()
     {
@@ -132,29 +133,6 @@ class ClazyController extends Controller
         return redirect()->route('Clazy.create'); //一覧ページにリダイレクト
     }
 
-    // 給料・目標貯金額をidを元に次の画面に引き継ぐ関数
-     // もしidが初期設定と編集設定で重複してしまう可能性があるのであれば編集設定側のidを取り除く
-    public function edit(int $id)
-    {
-        $user = User::find($id);
-
-        return view('pc.dashboard', [
-            'user' => $user,
-        ]);
-    }
-
-    // 送られてきたidと変更内容を元にデータベースを更新する関数
-    // public function update(int $id, Request $request)
-    // {
-
-    //     $user = User::find($id);
-
-    //     $user->saving = $request->saving; //画面で入力されたタイトルを代入
-    //     $user->salary = $request->salary; //画面で入力された本文を代入
-    //     $user->save(); //DBに保存
-
-    //     return redirect()->route('Clazy.firstInformation'); //一覧ページにリダイレクト
-    // }
 
     // 給料・目標貯金額のデータベースを更新する関数
     public function update(Request $request)
@@ -168,19 +146,6 @@ class ClazyController extends Controller
 
         return redirect()->route('Clazy.firstInformation'); //一覧ページにリダイレクト
     }
-
-    // 初期投稿保存処理
-
-    public function storeFirst(Request $request)
-    {
-        $user = new User();
-        $user->saving = $request->saving; //画面で入力された目標貯金額を代入
-        $user->salary = $request->salary; //画面で入力された給与を代入
-        $user->save(); //DBに保存
-
-        return redirect()->route('Clazy.firstInformation'); //一覧ページにリダイレクト
-    }
-
 
 
     // 出力機能  *****************************************************************
