@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+Clazy ログイン
+@endsection
+
 @section('content')
     {{--<!-- logo -->--}}
     <div align="center">

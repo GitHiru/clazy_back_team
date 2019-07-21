@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+Clazy 新規登録
+@endsection
+
 @section('content')
     {{--<!-- logo -->--}}
     <div align="center">
@@ -82,7 +86,7 @@
                             </div>
 
                             {{--<!--   saving    -->--}}
-                            <div class="form-group row">
+                            <!-- <div class="form-group row">
                                 <label for="saving" class="col-md-4 col-form-label text-md-right">
                                     {{ __('ためたいおかね') }}
                                 </label>
@@ -96,10 +100,10 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> -->
 
                             {{--<!--   salary    -->--}}
-                            <div class="form-group row">
+                            <!-- <div class="form-group row">
                                 <label for="salary" class="col-md-4 col-form-label text-md-right">
                                     {{ __('もらったおかね') }}
                                 </label>
@@ -113,7 +117,7 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> -->
 
                             {{--<!--   register   -->--}}
                             <div class="form-group row mb-0">
