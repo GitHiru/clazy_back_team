@@ -69,6 +69,14 @@ class ClazyController extends Controller
 
     // 入力機能  *****************************************************************
 
+    $agent = new Agent();
+
+    if ($agent->isMobile()) {
+        // mobile device
+    } else {
+        // pc
+    }
+
     // 初期データを表示する関数
     public function firstInformation()
     {
