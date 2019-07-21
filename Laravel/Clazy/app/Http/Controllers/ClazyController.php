@@ -9,6 +9,7 @@ use Carbon\Carbon;                //(追加)chart作成
 // use App\Clazy;                 //(追加) DB接続の為
 use App\Payment;                  //(追加) DB接続の為
 use App\User;                     //(追加) DB接続の為
+use App\Agent;                     //sp・pc出し分けの為
 
 
 class ClazyController extends Controller
@@ -69,7 +70,23 @@ class ClazyController extends Controller
 
     // 入力機能  *****************************************************************
 
-    // 初期データを表示する関数
+
+    // pcとspでの出し分け処理
+    public function change()
+    {
+        $agent = new Agent();
+
+        if ($agent->isMobile()) {
+            // mobile device
+            return view('sp.top');
+        } else {
+            // pc
+            return view('pc.dashboard');
+        }
+    }
+
+
+    // ダッシュボードを表示する関数
     public function firstInformation()
     {
         $year = date('Y');
