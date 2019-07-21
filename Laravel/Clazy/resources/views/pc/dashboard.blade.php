@@ -24,13 +24,7 @@
 
 <body>
   <div class="wrapper">
-    <!-- サイドバーがヘッドバーになる設定の実現 -->
-    <!-- 画面サイズが992pxの時にサイドバーは表示されなくなるので、それ以下の時にサイドバーの要素をヘッダーとして表示するという条件を追加する。 -->
-    <!-- サイドバー開始 -->
     <header class="sidebar" data-color="yellow">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-       -->
       <div class="logo" style="border-bottom: solid 1px white">
         <span class="simple-text logo-normal">
           <img src="{{ asset ('img/rogo.png') }}" width=100% >
@@ -44,7 +38,6 @@
               <h1 style="color: white"><i class="fas fa-yen-sign"></i>{{ $saving }}</h1>
           </li>
           <li >
-            <!-- userIDを正しく送れているのか分からない。ユーザーというものが本来であればフォーイーチを元に表されるもののはず。しかし現在フォーイーチで囲まれていないのに処理が成功している。理由はユーザーが既にこの画面に送られているからか、この処理自体がそもそも意味をなしていないか、画面を開いている時点で常にそこにユーザーidが存在しているか。ユーザーの最初のデータを編集する処理の仕方は学校で習っていないから整理する為にも聞く必要がある。 -->
             <a data-toggle="modal" data-target="#modal-1" id="modal-open">
               <i class="fas fa-user-edit"></i>
               <p>データ編集</p>
@@ -160,36 +153,6 @@
       </div>
     </div>
     <!-- 初期モーダルウィンドウ終わり -->
-
-
-    <!-- ここから目標貯金額編集モーダルウィンドウ -->
-    <!-- <div class="modal fade" id="modal-2">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content"> -->
-          <!-- モーダルウィンドウのコンテンツ開始 -->
-          <!-- <h3><i class="fas fa-trophy"></i>目標貯金額(月) <input type="text">円</h3>
-          <p><button class="modal-close" class="button-link">編集</button></p> -->
-          <!-- モーダルウィンドウのコンテンツ終了 -->
-        <!-- </div>
-      </div>
-    </div> -->
-    <!-- 目標貯金額編集モーダルウィンドウ終わり -->
-
-
-
-    <!-- ここから給料編集モーダルウィンドウ -->
-    <!-- <div class="modal fade" id="modal-3">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content"> -->
-          <!-- モーダルウィンドウのコンテンツ開始 -->
-          <!-- <h3><i class="fas fa-coins"></i>給料(月)<input type="text">円</h3>
-          <h3><i class="far fa-clock text-black"></i>給料日<input type="text">日</h3>
-          <p><button class="modal-close" class="button-link">編集</button></p> -->
-          <!-- モーダルウィンドウのコンテンツ終了 -->
-        <!-- </div>
-      </div>
-    </div> -->
-    <!-- 給料編集モーダルウィンドウ終わり -->
 
     {{--<!--   main panel   -->--}}
     <div class="main-panel" id="main-panel">
