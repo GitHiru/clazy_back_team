@@ -166,7 +166,7 @@ $(function() {
             /************
              *   失敗   *
              ************/
-              console.log(error);
+             console.log(error);
           }
       )
   }
