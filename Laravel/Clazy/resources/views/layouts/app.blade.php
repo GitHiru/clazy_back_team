@@ -4,6 +4,7 @@
     {{--<!--   SEO meta    -->--}}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="{{ asset ('img/c.png') }}">
     <title>Clazy - @yield('title')</title>
 
     {{--<!--   CSRF Token   -->--}}
@@ -25,7 +26,7 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     {{--<!-- PWA -->--}}
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
     <script src="{{ asset('js/main.js') }}" ></script>
 
     {{--<!-- Google tags -->--}}

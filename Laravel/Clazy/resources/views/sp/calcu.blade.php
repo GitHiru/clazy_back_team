@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <link rel="icon" type="image/png" href="{{ asset ('img/c.png') }}">
+
     <!-- css -->
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link href="{{ asset('css/calcu.css') }}" rel="stylesheet">
