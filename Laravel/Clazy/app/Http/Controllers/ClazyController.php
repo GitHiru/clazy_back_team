@@ -75,7 +75,13 @@ class ClazyController extends Controller
         $year = date('Y');
         $month = date('n');
 
-        $users = User::all();
+        // ログインしているユーザーのユーザーデータの所得
+        $user = Auth::user();
+
+        $salary=$user->salary;
+        $saving=$user->saving;
+
+
         // 今年と今月の値を自動で入力する流れを作成するYEAR(date) = YEAR(NOW()) AND MONTH(date)=MONTH(NOW());
         $payments = Payment::whereYear('created_at', '=', $year)
         ->whereMonth('created_at', '=', $month)
@@ -84,18 +90,17 @@ class ClazyController extends Controller
             // カラムの追加、リレーションを後で追加する必要があるかも
         ->get();
 
-
+        // 消費金額の合計
         $total = 0;
         foreach ($payments as $item) {
             $total = $total + $item->payment;
         }
 
-        $free = 0;
-        foreach ($users as $user) {
-            $free = $user->salary - $user->saving - $total;
-        }
+        // 自由に使えるお金
+        $free = $salary - $saving - $total;
 
-        return view('pc.dashboard', ['users' => $users, 'total' => $total, 'free' => $free]);
+
+        return view('pc.dashboard', ['salary' => $salary, 'saving' => $saving, 'total' => $total, 'free' => $free]);
     }
 
     // 電卓画面の表示をする関数
@@ -109,10 +114,14 @@ class ClazyController extends Controller
     public function store(Request $request)
     {
         $payments = new Payment();
+        $user = Auth::user();
 
         $dt = Carbon::now();
 
-        $payments->payment = $request->payment; //画面で入力された消費データを代入
+        $payments->payment = $request->payment;
+
+        $payments->user_id = $user->id;
+
         $payments->created_at_year = $dt->year;
         $payments->created_at_month = $dt->month;
         $payments->created_at_day = $dt->day;
@@ -135,17 +144,17 @@ class ClazyController extends Controller
     }
 
     // 送られてきたidと変更内容を元にデータベースを更新する関数
-    public function update(int $id, Request $request)
-    {
+    // public function update(int $id, Request $request)
+    // {
 
-        $user = User::find($id);
+    //     $user = User::find($id);
 
-        $user->saving = $request->saving; //画面で入力されたタイトルを代入
-        $user->salary = $request->salary; //画面で入力された本文を代入
-        $user->save(); //DBに保存
+    //     $user->saving = $request->saving; //画面で入力されたタイトルを代入
+    //     $user->salary = $request->salary; //画面で入力された本文を代入
+    //     $user->save(); //DBに保存
 
-        return redirect()->route('Clazy.firstInformation'); //一覧ページにリダイレクト
-    }
+    //     return redirect()->route('Clazy.firstInformation'); //一覧ページにリダイレクト
+    // }
 
     // 給料・目標貯金額のデータベースを更新する関数
     public function update(Request $request)
