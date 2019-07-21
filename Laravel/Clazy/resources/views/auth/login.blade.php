@@ -19,8 +19,11 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
 
+                            {{--<!--   mail   -->--}}
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('めーるあどれす') }}</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">
+                                    {{ __('めーるあどれす') }}
+                                </label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -33,8 +36,11 @@
                                 </div>
                             </div>
 
+                            {{--<!--   password   -->--}}
                             <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('ぱすわーど') }}</label>
+                                <label for="password" class="col-md-4 col-form-label text-md-right">
+                                    {{ __('ぱすわーど') }}
+                                </label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -47,6 +53,7 @@
                                 </div>
                             </div>
 
+                            {{--<!--  submit  -->--}}
                             <div class="form-group row">
                                 <div class="col-md-6 offset-md-4">
                                     <div class="form-check">
@@ -58,7 +65,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
@@ -72,6 +78,7 @@
                                     @endif
                                 </div>
                             </div>
+
                         </form>
                     </div>
                 </div>
