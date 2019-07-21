@@ -1,23 +1,26 @@
 @extends('layouts.app')
 
 @section('title')
-Clazy 新規登録
+新規登録
 @endsection
 
 @section('content')
-    {{--<!-- logo -->--}}
-    <div align="center">
-      <a href="{{ route('login.top') }}"><img src="{{ asset('img/logo.png') }}"></a>
-    </div>
+{{--<!-- logo -->--}}
+<div class="text-center">
+    <a href="{{ route('login.top') }}">
+        <img src="{{ asset('img/logo.png') }}" alt="logo of Clazy" class="img-fluid">
+    </a>
+</div>
 
-    <hr style="width: 50%; border:0;border-top:2px  solid grey;">
-    <br>
 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('しんきとうろく') }}</div>
+                    <div class="card-header bg-dark text-white">
+                        <i class="fas fa-sign-in-alt faa-ring animated"></i>
+                        {{ __('新規登録') }}
+                    </div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
@@ -26,7 +29,7 @@ Clazy 新規登録
                             {{--<!--   name   -->--}}
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('おなまえ') }}
+                                    {{ __('名前') }}
                                 </label>
 
                                 <div class="col-md-6">
@@ -43,7 +46,7 @@ Clazy 新規登録
                             {{--<!--   mail   -->--}}
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('めーる') }}
+                                    {{ __('メールアドレス') }}
                                 </label>
 
                                 <div class="col-md-6">
@@ -60,7 +63,7 @@ Clazy 新規登録
                             {{--<!--   password   -->--}}
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('ぱすわーど') }}
+                                    {{ __('パスワード') }}
                                 </label>
 
                                 <div class="col-md-6">
@@ -77,7 +80,7 @@ Clazy 新規登録
                             {{--<!--   password   -->--}}
                             <div class="form-group row">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('もっかい、ぱすわーど') }}
+                                    {{ __('パスワード') }}
                                 </label>
 
                                 <div class="col-md-6">
@@ -122,8 +125,8 @@ Clazy 新規登録
                             {{--<!--   register   -->--}}
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('とうろく') }}
+                                    <button type="submit" class="btn btn-warning">
+                                        {{ __('登録') }}
                                     </button>
                                 </div>
                             </div>
