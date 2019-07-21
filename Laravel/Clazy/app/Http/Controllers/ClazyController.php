@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; //(追加)chart作成
+use Illuminate\Support\Facades\Auth;//(追加)auth作成
 use Carbon\Carbon;                //(追加)chart作成
 // use App\Clazy;                 //(追加) DB接続の為
 use App\Payment;                  //(追加) DB接続の為
@@ -76,7 +77,12 @@ class ClazyController extends Controller
 
         $users = User::all();
         // 今年と今月の値を自動で入力する流れを作成するYEAR(date) = YEAR(NOW()) AND MONTH(date)=MONTH(NOW());
-        $payments = Payment::whereYear('created_at', '=', $year)->whereMonth('created_at', '=', $month)->get();
+        $payments = Payment::whereYear('created_at', '=', $year)
+        ->whereMonth('created_at', '=', $month)
+        ->where('user_id', Auth::user()->id)
+            // カラムの追加、リレーションを後で追加する必要があるかも
+        ->get();
+
 
         $total = 0;
         foreach ($payments as $item) {

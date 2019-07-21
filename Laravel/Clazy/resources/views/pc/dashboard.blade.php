@@ -53,28 +53,20 @@
             </a>
           </li>
           <li >
-            <a href="./dashboard.html">
-              <i class="fas fa-home"></i>
-              <p>ホーム画面</p>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+                  <i class="fas fa-home"></i>
+                    <p>ログアウト</p>
             </a>
-          </li>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+          </li >
           <li>
             <a href="">
               <i class="fas fa-bell"></i>
               <p>通知</p>
             </a>
-          </li>
-          <li>
-              <i class="fas fa-bell"></i>
-              <p>
-                  <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">
-                    ログアウト
-                  </a>
-              </p>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  @csrf
-              </form>
           </li>
         </ul>
       </div>
