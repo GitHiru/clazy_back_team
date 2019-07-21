@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; //(追加)chart作成
+use Illuminate\Support\Facades\Auth;//(追加)auth作成
 use Carbon\Carbon;                //(追加)chart作成
 // use App\Clazy;                 //(追加) DB接続の為
 use App\Payment;                  //(追加) DB接続の為
@@ -68,44 +69,59 @@ class ClazyController extends Controller
 
     // 入力機能  *****************************************************************
 
-    // 初期データを表示するコントローラー
+    // 初期データを表示する関数
     public function firstInformation()
     {
         $year = date('Y');
         $month = date('n');
 
-        $users = User::all();
-        // 今年と今月の値を自動で入力する流れを作成するYEAR(date) = YEAR(NOW()) AND MONTH(date)=MONTH(NOW());
-        $payments = Payment::whereYear('created_at', '=', $year)->whereMonth('created_at', '=', $month)->get();
+        // ログインしているユーザーのユーザーデータの所得
+        $user = Auth::user();
 
+        $salary=$user->salary;
+        $saving=$user->saving;
+
+
+        // 今年と今月の値を自動で入力する流れを作成するYEAR(date) = YEAR(NOW()) AND MONTH(date)=MONTH(NOW());
+        $payments = Payment::whereYear('created_at', '=', $year)
+        ->whereMonth('created_at', '=', $month)
+        // 現在ログインしているユーザーのidと一致する消費をデータをデータベースから所得する
+        ->where('user_id', Auth::user()->id)
+            // カラムの追加、リレーションを後で追加する必要があるかも
+        ->get();
+
+        // 消費金額の合計
         $total = 0;
         foreach ($payments as $item) {
             $total = $total + $item->payment;
         }
 
-        $free = 0;
-        foreach ($users as $user) {
-            $free = $user->salary - $user->saving - $total;
-        }
+        // 自由に使えるお金
+        $free = $salary - $saving - $total;
 
-        return view('pc.dashboard', ['users' => $users, 'total' => $total, 'free' => $free]);
+
+        return view('pc.dashboard', ['salary' => $salary, 'saving' => $saving, 'total' => $total, 'free' => $free]);
     }
 
+    // 電卓画面の表示をする関数
     public function create()
     {
-        // views/diaries/create.blade.phpを表示する
         return view('sp.calcu');
     }
 
+
+    // 電卓で入力された値をデータベースに保存する関数
     public function store(Request $request)
     {
         $payments = new Payment();
+        $user = Auth::user();
 
         $dt = Carbon::now();
 
-        // 現在している指定がクレイジーを指定してしまっているから、クレイジーではなくペイメントというモデルを作成しなければならない。
+        $payments->payment = $request->payment;
 
-        $payments->payment = $request->payment; //画面で入力された消費データを代入
+        $payments->user_id = $user->id;
+
         $payments->created_at_year = $dt->year;
         $payments->created_at_month = $dt->month;
         $payments->created_at_day = $dt->day;
@@ -116,6 +132,8 @@ class ClazyController extends Controller
         return redirect()->route('Clazy.create'); //一覧ページにリダイレクト
     }
 
+    // 給料・目標貯金額をidを元に次の画面に引き継ぐ関数
+     // もしidが初期設定と編集設定で重複してしまう可能性があるのであれば編集設定側のidを取り除く
     public function edit(int $id)
     {
         $user = User::find($id);
@@ -125,10 +143,24 @@ class ClazyController extends Controller
         ]);
     }
 
-    public function update(int $id, Request $request)
-    {
+    // 送られてきたidと変更内容を元にデータベースを更新する関数
+    // public function update(int $id, Request $request)
+    // {
 
-        $user = User::find($id);
+    //     $user = User::find($id);
+
+    //     $user->saving = $request->saving; //画面で入力されたタイトルを代入
+    //     $user->salary = $request->salary; //画面で入力された本文を代入
+    //     $user->save(); //DBに保存
+
+    //     return redirect()->route('Clazy.firstInformation'); //一覧ページにリダイレクト
+    // }
+
+    // 給料・目標貯金額のデータベースを更新する関数
+    public function update(Request $request)
+    {
+        // ログインユーザー情報を取得します。
+        $user = Auth::user();
 
         $user->saving = $request->saving; //画面で入力されたタイトルを代入
         $user->salary = $request->salary; //画面で入力された本文を代入
@@ -202,4 +234,36 @@ class ClazyController extends Controller
 
 
     }
+        // $agent = new Agent();
+        // if ($agent->isMobile()) {
+        //     // mobile device
+        //     dd("SP");
+
+            //     return view('sp.top');
+        // } else {
+        //     // pc
+        //     dd("PC");
+        //     // 現在表示内容にバグが発生している。userバグの発生理由は恐らくaタブでユーザーデータを送っていないから。
+        //     // ログインボタンが押された時にこの処理が行われ、どちらの画面に遷移するかを選択してほしい。つまりこの関数はログインボタンを押された時に実行して欲しい。その為にはgetかpostのどちらの処理をするのかを考える必要がある。架空のurlにログインボタンから一度飛ばしてそのurlの時の実行される処理としてこのコントローラーの内容を書けば良い可能性はある。
+        //     $year = date('Y');
+        //     $month = date('n');
+
+        //     $users = User::all();
+        //     // 今年と今月の値を自動で入力する流れを作成するYEAR(date) = YEAR(NOW()) AND MONTH(date)=MONTH(NOW());
+        //     // whereYearの前にユーザーidでデータを大きく囲む。
+        //     $payments = Payment::whereYear('created_at', '=', $year)->whereMonth('created_at', '=', $month)->get();
+
+        //     $total = 0;
+        //     foreach ($payments as $item) {
+        //         $total = $total + $item->payment;
+        //     }
+
+        //     $free = 0;
+        //     foreach ($users as $user) {
+        //         $free = $user->salary - $user->saving - $total;
+        //     }
+
+        //     return view('pc.dashboard', ['users' => $users, 'total' => $total, 'free' => $free]);
+        // }
+
 }

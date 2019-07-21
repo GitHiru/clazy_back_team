@@ -46,9 +46,9 @@ Route::group(['middleware' => 'auth'], function() {
     // ■ 初期設定モーダルからの投稿
     Route::post('/dashboard', 'ClazyController@storeFirst')->name('Clazy.firstInformation'); // 保存処理
     // ■ dashboardページ 金額データ編集(get)
-    Route::get('/{id}/dashboard', 'ClazyController@edit')->name('Clazy.edit'); // 編集画面
+    // Route::get('/{id}/dashboard', 'ClazyController@edit')->name('Clazy.edit'); // 編集画面
     // ■ dashboardページ 金額データ更新(put)
-    Route::put('/{id}/update', 'ClazyController@update')->name('Clazy.update'); //更新処理
+    Route::put('/update', 'ClazyController@update')->name('Clazy.update'); //更新処理
     // ■ dashboardページ チャート描画
     Route::post('/dashboard/chart', 'ClazyController@chart');// （chart）
 });
