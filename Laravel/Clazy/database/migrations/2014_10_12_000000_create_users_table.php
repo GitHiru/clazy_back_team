@@ -21,8 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->integer('saving');
-            $table->integer('salary');
+            $table->integer('saving')->default(0);
+            $table->integer('salary')->default(0);
         });
     }
 
