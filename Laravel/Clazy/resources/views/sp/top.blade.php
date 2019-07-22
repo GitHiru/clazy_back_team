@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
+@section('title')
+TOP(SP)
+@endsection
+
 @section('content')
 
 {{--<!--   nav   -->--}}
-
 <main>
-<header>
+    <header>
+
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -61,7 +65,7 @@
                 </div>
             </div>
         </div>
-</header>
+    </header>
 
 {{--<!--   main  -->--}}
 <div class="box container">
