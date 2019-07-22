@@ -133,9 +133,8 @@
         </table>
 
         {{--<!-- 消費データの送信ボタンを追加 -->--}}
-        <div class="text-right">
-            <a href="{{ route('Clazy.top') }}" class="btn btn-warning text-left"><i class="fas fa-arrow-left"></i></a>
-            <button type="submit" class="btn btn-warning ml-4">使ったお金を送信</button>
+        <div class="text-center">
+            <button type="submit" class="btn btn-warning">使ったお金を送信</button>
         </div>
 
       </form>

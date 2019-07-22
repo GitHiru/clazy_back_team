@@ -51,6 +51,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::put('/update', 'ClazyController@update')->name('Clazy.update'); //更新処理
     // ■ dashboardページ チャート描画
     Route::post('/dashboard/chart', 'ClazyController@chart');// （chart）
+
 });
 
 Auth::routes();
