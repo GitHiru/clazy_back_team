@@ -104,7 +104,6 @@ class ClazyController extends Controller
         // 自由に使えるお金
         $free = $salary - $saving - $total;
 
-
         return view('pc.dashboard', ['salary' => $salary, 'saving' => $saving, 'total' => $total, 'free' => $free]);
     }
 

@@ -89,7 +89,7 @@
             <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" style="border-radius: 50px 0px 0px 50px; width: 320px;" placeholder="つかったら入力しよ〜" >
             </a>
             <div class="input-group-append" style="border-radius: 0px 50px 50px 0px;background-color: orange">
-                <button class="btn btn-outline-secondary" type="button" style="border-radius: 0px 50px 50px 0px;background-color: yellow"><i class="fas fa-calculator"></i></button>
+                <button class="btn btn-outline-secondary" type="button" style="border-radius: 0px 50px 50px 0px;background-color: yellow"><i class="fas fa-calculator fa-1x" style="color: white;"></i></button>
             </div>
         </div>
     </div>
