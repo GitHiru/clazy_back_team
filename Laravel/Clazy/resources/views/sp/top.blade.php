@@ -3,6 +3,7 @@
 @section('content')
 
 {{--<!--   nav   -->--}}
+
 <main>
 <header>
         <div class="container">
@@ -13,6 +14,7 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <!-- {{ config('app.name', 'Clazy') }} -->
                     </a>
+
 
                     {{--<!--  hamburger toggle -->--}}
                     <button class="navbar-toggler"
