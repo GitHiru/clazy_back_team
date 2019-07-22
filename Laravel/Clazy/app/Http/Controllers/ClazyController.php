@@ -16,18 +16,8 @@ use App\Agent;                     //sp・pc出し分けの為
 class ClazyController extends Controller
 {
     // ログイン機能 **************************************************************
-    // dear Mau
-    // 一旦授業のログイン機能を実施。その後はtrelloにある他のAPIでログインを試みる!
-    public function createTop()
-    {
-        //
-    }
 
-
-
-
-
-// APIだから後で
+// FB GM API
 //  /**
 //      * Redirect the user to the GitHub authentication page.
 //      *
@@ -63,9 +53,6 @@ class ClazyController extends Controller
 //         return redirect()->to('/home');
 //     }
 // }
-
-
-
 
 
 
@@ -134,11 +121,9 @@ class ClazyController extends Controller
     {
         $payments = new Payment();
         $user = Auth::user();
-
         $dt = Carbon::now();
 
         $payments->payment = $request->payment;
-
         $payments->user_id = $user->id;
 
         $payments->created_at_year = $dt->year;
@@ -170,6 +155,8 @@ class ClazyController extends Controller
 
     public function chart()
     {
+        $userId = Auth::user()->id;
+        $payments = Payment::where('userId', $userId)->with('payments')->first();
 
         $dt = Carbon::now();
         $year = $dt->year;
@@ -177,20 +164,16 @@ class ClazyController extends Controller
         $startDate = $dt->day - $dt->dayOfWeek; //e.g. 18 - 4 = 14
         $endDate = $dt->day + (6 - $dt->dayOfWeek); //e.g. 18 + (6 - 4 ) = 20
 
-        // $userId = \Auth::user()->id;
-        //
-        // $payments = Payment::where('userId', $userId)->with('payments')->first();
 
         $mDataTmp = Payment::select(DB::raw('sum(payment) as payment, created_at_month'))
-            // ->where('user_id', $userId)
+            ->where('user_id', $userId)
             ->groupBy('created_at_month')
             ->orderBy('created_at_month')
             ->pluck('payment', 'created_at_month') //created_at_monthをkeyにデータ取得
             ->toArray();//配列整形
 
-
         $wDataTmp = Payment::select(DB::raw('sum(payment) as payment, created_at_day'))
-            // ->where('user_id', $userId)
+            ->where('user_id', $userId)
             ->where('created_at_year', $year)
             ->where('created_at_month', $month)
             ->whereBetween('created_at_day', [$startDate, $endDate]) //e.g.[1, 100]配列渡し
@@ -208,13 +191,11 @@ class ClazyController extends Controller
 
         $wData = [];
         $dates = range($startDate, $endDate);
-
         foreach ($dates as $date) {
             $wData[$date] = $wDataTmp[$date] ?? 0;
         }
 
         return ['mData' => $mData, 'wData' => $wData];
-
 
     }
         // $agent = new Agent();

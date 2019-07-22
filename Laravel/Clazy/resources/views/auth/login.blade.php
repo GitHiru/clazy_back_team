@@ -1,19 +1,26 @@
 @extends('layouts.app')
 
-@section('content')
-    {{--<!-- logo -->--}}
-    <div align="center">
-      <a href="{{ route('login.top') }}"><img src="{{ asset('img/logo.png') }}"></a>
-    </div>
+@section('title')
+ログイン
+@endsection
 
-    <hr style="width: 50%; border:0;border-top:2px  solid grey;">
-    <br>
+@section('content')
+{{--<!-- logo -->--}}
+<div class="text-center">
+    <a href="{{ route('login.top') }}">
+        <img src="{{ asset('img/logo.png') }}" alt="logo of Clazy" class="img-fluid">
+    </a>
+</div>
+
 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Clazyにはいろー！') }}</div>
+                    <div class="card-header bg-dark text-white">
+                        <i class="fa fa-desktop"></i>
+                        {{ __('ログイン') }}
+                    </div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
@@ -22,7 +29,7 @@
                             {{--<!--   mail   -->--}}
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('めーるあどれす') }}
+                                    {{ __('メールアドレス') }}
                                 </label>
 
                                 <div class="col-md-6">
@@ -39,7 +46,7 @@
                             {{--<!--   password   -->--}}
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('ぱすわーど') }}
+                                    {{ __('パスワード') }}
                                 </label>
 
                                 <div class="col-md-6">
@@ -67,8 +74,8 @@
                             </div>
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('ろぐいん') }}
+                                    <button type="submit" class="btn btn-warning">
+                                        {{ __('ログイン') }}
                                     </button>
 
                                     @if (Route::has('password.request'))

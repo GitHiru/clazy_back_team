@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
-@section('content')
+@section('title')
+TOP(SP)
+@endsection
 
+@section('content')
 {{--<!--   nav   -->--}}
 <header>
         <div class="container">
@@ -12,6 +15,7 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <!-- {{ config('app.name', 'Clazy') }} -->
                     </a>
+
 
                     {{--<!--  hamburger toggle -->--}}
                     <button class="navbar-toggler"

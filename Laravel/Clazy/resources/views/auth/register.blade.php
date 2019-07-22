@@ -1,19 +1,26 @@
 @extends('layouts.app')
 
-@section('content')
-    {{--<!-- logo -->--}}
-    <div align="center">
-      <a href="{{ route('login.top') }}"><img src="{{ asset('img/logo.png') }}"></a>
-    </div>
+@section('title')
+新規登録
+@endsection
 
-    <hr style="width: 50%; border:0;border-top:2px  solid grey;">
-    <br>
+@section('content')
+{{--<!-- logo -->--}}
+<div class="text-center">
+    <a href="{{ route('login.top') }}">
+        <img src="{{ asset('img/logo.png') }}" alt="logo of Clazy" class="img-fluid">
+    </a>
+</div>
+
 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('しんきとうろく') }}</div>
+                    <div class="card-header bg-dark text-white">
+                        <i class="fas fa-sign-in-alt faa-ring animated"></i>
+                        {{ __('新規登録') }}
+                    </div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
@@ -22,7 +29,7 @@
                             {{--<!--   name   -->--}}
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('おなまえ') }}
+                                    {{ __('名前') }}
                                 </label>
 
                                 <div class="col-md-6">
@@ -39,7 +46,7 @@
                             {{--<!--   mail   -->--}}
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('めーる') }}
+                                    {{ __('メールアドレス') }}
                                 </label>
 
                                 <div class="col-md-6">
@@ -56,7 +63,7 @@
                             {{--<!--   password   -->--}}
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('ぱすわーど') }}
+                                    {{ __('パスワード') }}
                                 </label>
 
                                 <div class="col-md-6">
@@ -73,7 +80,7 @@
                             {{--<!--   password   -->--}}
                             <div class="form-group row">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('もっかい、ぱすわーど') }}
+                                    {{ __('パスワード') }}
                                 </label>
 
                                 <div class="col-md-6">
@@ -82,7 +89,7 @@
                             </div>
 
                             {{--<!--   saving    -->--}}
-                            <div class="form-group row">
+                            <!-- <div class="form-group row">
                                 <label for="saving" class="col-md-4 col-form-label text-md-right">
                                     {{ __('ためたいおかね') }}
                                 </label>
@@ -96,10 +103,10 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> -->
 
                             {{--<!--   salary    -->--}}
-                            <div class="form-group row">
+                            <!-- <div class="form-group row">
                                 <label for="salary" class="col-md-4 col-form-label text-md-right">
                                     {{ __('もらったおかね') }}
                                 </label>
@@ -113,13 +120,13 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> -->
 
                             {{--<!--   register   -->--}}
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('とうろく') }}
+                                    <button type="submit" class="btn btn-warning">
+                                        {{ __('登録') }}
                                     </button>
                                 </div>
                             </div>
