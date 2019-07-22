@@ -12,7 +12,8 @@ $(function() {
       gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
       gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
 
-  //▼  描画データ  (週)
+
+  // ▼  描画データ  (週)
   let wData = {
     labels: ["SUN", "MON", "TUE", "WEN", "THE", "FRI", "SAT"],
     datasets: [{
@@ -32,7 +33,7 @@ $(function() {
       borderWidth: 2
     }]
   };
-  //▼  描画データ  (月)
+  // ▼  描画データ  (月)
   let mData = {
     labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
     datasets: [{
@@ -52,7 +53,7 @@ $(function() {
       borderWidth: 2
     }]
   };
-  //▼  描画オプション
+  // ▼  描画オプション
   const options = {
     layout: {
       padding: {
@@ -112,7 +113,7 @@ $(function() {
   };
 
 
-  //▼  初期  描画
+  // ▼  初期  描画
   initDashboardPageCharts(ctx, wData);
 
   chart();
@@ -125,19 +126,19 @@ $(function() {
       options : options
     });
   }
-  //▼ 描画切替  (週)
+  // ▼ 描画切替  (週)
   function chnageWeekChart(chart) {
     chart.data = wData
     chart.update();
   }
-  //▼ 描画切替  (月)
+  // ▼ 描画切替  (月)
   function changeMonthChart(chart) {
     chart.data = mData
     chart.update();
   }
 
 
-  //▼ 描画データ取得  (Ajax)
+  // ▼ 描画データ取得  (Ajax)
   function chart() {
       $.ajax({
           url: 'dashboard/chart',
@@ -170,5 +171,15 @@ $(function() {
           }
       )
   }
+
+
+  // ▼ ボタン押下処理（週）
+  document.getElementById('w').onclick = function(){
+    chnageWeekChart(myChart);
+  };
+  // ▼ ボタン押下処理（月）
+  document.getElementById('m').onclick = function(){
+    changeMonthChart(myChart);
+  };
 
 });
