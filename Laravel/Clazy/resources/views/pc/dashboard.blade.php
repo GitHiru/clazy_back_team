@@ -227,7 +227,9 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script> -->
     <script src="{{ asset('js/plugins/chartjs.min.js') }}" defer></script>
     <script src="{{ asset('js/chartdata.js') }}" defer></script>
-    <script src="{{ asset('js/dashboard.js') }}" defer></script>
 
+    @if($salary == 0)
+    <script src="{{ asset('js/dashboard.js') }}" defer></script>
+    @endif
 </body>
 </html>

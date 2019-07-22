@@ -12,6 +12,7 @@ use App\User;                       // (追加) DB接続の為
 use App\Agent;                      // sp・pc出し分けの為
 
 
+
 class ClazyController extends Controller
 {
     // ログイン機能 **************************************************************
@@ -100,7 +101,6 @@ class ClazyController extends Controller
 
         // 自由に使えるお金
         $free = $salary - $saving - $total;
-
 
         return view('pc.dashboard', ['salary' => $salary, 'saving' => $saving, 'total' => $total, 'free' => $free]);
     }
