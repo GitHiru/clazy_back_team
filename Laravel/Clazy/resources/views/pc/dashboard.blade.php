@@ -162,18 +162,18 @@
             .chart-row{position:absolute; z-index: 999;right:30px;}
             .b{margin:10px;}
             .b:hover{background-color: rgba(255,255,255,0.5;)!important}
-          </style>
+        </style>
         <div class="chart-box">
             <div class="row chart-row">
               <button type="button" id="w" class="b btn btn-outline-light btn-sm col-auto">WEEK</button>
               <button type="button" id="m" class="b btn btn-outline-light btn-sm col-auto">MONTH</button>
             </div>
-          </div>
+        </div>
 
         {{--<!--   チャート描画  -->--}}
         <div class="panel-header panel-header-lg">
             <canvas id="bigDashboardChart"></canvas>
-          </div>
+        </div>
 
         {{--<!--   コンテンツ カードの配置  -->--}}
         <div class="container-fluid content">
@@ -212,7 +212,7 @@
         {{--<!--  footer  -->--}}
         <footer class="footer">
             <div class="container-fluid">会社概要:Clazy</div>
-          </footer>
+        </footer>
     </div>
     {{--<!-- end mein panel -->--}}
 
