@@ -23,9 +23,9 @@ class ClazyController extends Controller
     }
 
 
-  
 
-  
+
+
 // APIだから後で
 //  /**
 //      * Redirect the user to the GitHub authentication page.
