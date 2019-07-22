@@ -25,15 +25,15 @@
 <body>
   <div class="wrapper">
     <header class="sidebar" data-color="yellow">
-      <div class="logo" style="border-bottom: solid 1px white">
+      <div class="logo" style="border-bottom: solid 1px white; background-color: #bf9033;">
         <span class="simple-text logo-normal">
           <img src="{{ asset ('img/rogo.png') }}" width=100% >
         </span>
       </div>
-      <div class="sidebar-wrapper" id="sidebar-wrapper">
+      <div class="sidebar-wrapper" id="sidebar-wrapper" style="background-color: #bf9033;">
         <ul class="nav">
           <li style="border-bottom: solid 1px white">
-              <h5><i class="now-ui-icons users_single-02"></i></h5>
+              <h5><i class="fas fa-trophy"></i></h5>
               <h5 style="color: white">貯めたいお金</h5>
               <h1 style="color: white"><i class="fas fa-yen-sign"></i>{{ $saving }}</h1>
           </li>
@@ -183,7 +183,7 @@
                     <h3 class="card-header"><i class="fas fa-coins"></i>入ったお金</h3>
                     <div class="card-body text-warning">
                       <h5 class="card-title py-3"></h5>
-                      <p class="card-text py-5"><i class="fas fa-yen-sign text-black"></i>{{ $salary }}</p>
+                      <p class="card-text py-5" style="color: #bf9033"><i class="fas fa-yen-sign text-black"></i>{{ $salary }}</p>
                     </div>
                   </div>
                 </div>
@@ -192,7 +192,7 @@
                     <h3 class="card-header"><i class="fas fa-hand-holding-usd"></i>使ったお金</h3>
                     <div class="card-body text-warning">
                       <h5 class="card-title py-3"></h5>
-                      <p class="card-text py-5"><i class="fas fa-yen-sign text-black"></i>{{ $total }}</p>
+                      <p class="card-text py-5" style="color: #bf9033"><i class="fas fa-yen-sign text-black"></i>{{ $total }}</p>
                     </div>
                   </div>
                 </div>
@@ -201,7 +201,7 @@
                     <h3 class="card-header"><i class="fas fa-user-plus"></i>自由に使えるお金</h3>
                     <div class="card-body text-warning">
                       <h5 class="card-title py-3"></h5>
-                      <p class="card-text py-5"><i class="fas fa-yen-sign text-black"></i>{{ $free }}</p>
+                      <p class="card-text py-5" style="color: #bf9033"><i class="fas fa-yen-sign text-black"></i>{{ $free }}</p>
                     </div>
                   </div>
                 </div>
