@@ -26,6 +26,11 @@ Route::get('/', function () { return view('top'); })->name('login.top');
 
 // ■ ログイン
 Route::group(['middleware' => 'auth'], function() {
+
+    // spとpcの出し分け処理
+    Route::get('change', 'ClazyController@change')->name('Clazy.change'); // 投稿画面
+
+
     /*******************************************************
      *    SP
      *******************************************************/
