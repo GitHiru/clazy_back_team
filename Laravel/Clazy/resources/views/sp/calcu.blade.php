@@ -25,7 +25,8 @@
 <body>
     <nav class="navbar navbar-fixed-top" role="navigation" style="background-color: white;">
           <div class="container" style="padding-right: 0px;">
-            <span style="color: gold;">C</span>lazy<a href="{{ route('Clazy.top') }}" ><i class="fas fa-window-close" style="color: black;"></i></a>
+            <span></span><span style="font-size: 25px"><span style="color: gold;">C</span>lazy</span><a href="{{ route('Clazy.top') }}" >
+            <i class="fas fa-times fa-2x" style="color: black;"></i></a>
           </div>
     </nav>
     <div class="calc" style="background-color: white;">

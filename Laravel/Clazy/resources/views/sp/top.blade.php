@@ -76,13 +76,21 @@
     <div class="row">
         <div class="col-lg-12">
         <a href="{{ route('Clazy.create') }}">
-            <input id="sbox1"
-                   name="s"
-                   type="text"
-                   style="width: 800px; height: 60px;"
-                   placeholder="つかったら入力しよ〜" />
         </a>
         </div>
+    </div>
+
+    <div class="row" style="width: 800px;">
+        <div class="col-lg-12" >
+        <div class="input-group">
+            <a href="{{ route('Clazy.create') }}">
+            <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" style="border-radius: 50px 0px 0px 50px; width: 320px;" placeholder="つかったら入力しよ〜" >
+            </a>
+            <div class="input-group-append" style="border-radius: 0px 50px 50px 0px;background-color: orange">
+                <button class="btn btn-outline-secondary" type="button" style="border-radius: 0px 50px 50px 0px;background-color: yellow"><i class="fas fa-calculator"></i></button>
+            </div>
+        </div>
+    </div>
     </div>
 </div>
 </main>
