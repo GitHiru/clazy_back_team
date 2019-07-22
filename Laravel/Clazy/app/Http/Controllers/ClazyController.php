@@ -3,20 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB; //(追加)chart作成
-use Illuminate\Support\Facades\Auth;//(追加)auth作成
-use Carbon\Carbon;                //(追加)chart作成
-// use App\Clazy;                 //(追加) DB接続の為
-use App\Payment;                  //(追加) DB接続の為
-use App\User;                     //(追加) DB接続の為
-// 下のエージェントについては必要か不必要かの判断がまだ出来ていない
-use App\Agent;                     //sp・pc出し分けの為
+use Illuminate\Support\Facades\DB;  // (追加)chart作成
+use Illuminate\Support\Facades\Auth;// (追加)auth作成
+use Carbon\Carbon;                  // (追加)chart作成
+// use App\Clazy;                   // (追加) DB接続の為
+use App\Payment;                    // (追加) DB接続の為
+use App\User;                       // (追加) DB接続の為
+use App\Agent;                      // sp・pc出し分けの為
+
 
 
 class ClazyController extends Controller
 {
     // ログイン機能 **************************************************************
-
 // FB GM API
 //  /**
 //      * Redirect the user to the GitHub authentication page.
@@ -53,7 +52,6 @@ class ClazyController extends Controller
 //         return redirect()->to('/home');
 //     }
 // }
-
 
 
     // 入力機能  *****************************************************************
@@ -197,7 +195,6 @@ class ClazyController extends Controller
         return ['mData' => $mData, 'wData' => $wData];
 
     }
-
 
         // $agent = new Agent();
         // if ($agent->isMobile()) {
