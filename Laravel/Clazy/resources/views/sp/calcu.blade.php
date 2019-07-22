@@ -14,22 +14,30 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- js -->
+    <script src="{{ asset('js/core/jquery.min.js') }}" defer></script>
     <script src="{{ asset('js/calcu.js') }}" defer></script>
+    <script src="{{ asset('js/core/bootstrap.min.js') }}" defer></script>
 
 
     <title>Clazy -レジ-</title>
 </head>
 
 <body>
-    <div class="calc">
-        <a href="{{ route('Clazy.top') }}" class="btn btn-warning btn-block">ホーム画面へ</a>
-      <form onsubmit="addValue()" action="{{ route('Clazy.create') }}" method="POST">
+    <nav class="navbar navbar-fixed-top" role="navigation" style="background-color: white;">
+          <div class="container" style="padding-right: 0px;">
+            <span style="color: gold;">C</span>lazy<a href="{{ route('Clazy.top') }}" ><i class="fas fa-window-close" style="color: black;"></i></a>
+          </div>
+    </nav>
+    <div class="calc" style="background-color: white;">
+        <!-- <a href="{{ route('Clazy.top') }}" class="btn btn-warning btn-block">ホーム画面へ</a> -->
+      <form onsubmit="addValue()" action="{{ route('Clazy.create') }}" method="POST" style="background-color: white; height:100vh">
+
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group" style="background-color: black; height: 80px; margin-bottom: 0px;">
                         <input id="payment" name="payment" type="hidden" />
                         <!-- 電卓の表示部分 -->
                         <div class="value-text" id="valueInput">
-                            <p id="value-display"></p>
+                            <p id="value-display" class="mb-0"></p>
                                 <!-- 追加された部分 -->
                                 <!-- <a href="" id="payment" name="payment"> -->
                                 <!-- <input type="text" class="form-control" name="title" id="title" /> -->
@@ -142,3 +150,4 @@
 </body>
 
 </html>
+
