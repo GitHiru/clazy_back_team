@@ -223,11 +223,11 @@
     <script src="{{ asset('js/core/bootstrap.min.js') }}" defer></script>
     <script src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}" defer></script>
     <script src="{{ asset('js/now-ui-dashboard.min.js?v=1.3.0') }}" defer></script>
-    <script src="{{ asset('js/dashboard.js') }}" defer></script>
     {{--<!--    Chart JS   -->--}}
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script> -->
     <script src="{{ asset('js/plugins/chartjs.min.js') }}" defer></script>
     <script src="{{ asset('js/chartdata.js') }}" defer></script>
+    <script src="{{ asset('js/dashboard.js') }}" defer></script>
 
 </body>
 </html>

@@ -31,7 +31,6 @@
     <div class="calc" style="background-color: white;">
         <!-- <a href="{{ route('Clazy.top') }}" class="btn btn-warning btn-block">ホーム画面へ</a> -->
       <form onsubmit="addValue()" action="{{ route('Clazy.create') }}" method="POST" style="background-color: white; height:100vh">
-
                     @csrf
                     <div class="form-group" style="background-color: black; height: 80px; margin-bottom: 0px;">
                         <input id="payment" name="payment" type="hidden" />
@@ -133,8 +132,9 @@
         </table>
 
         {{--<!-- 消費データの送信ボタンを追加 -->--}}
-        <div class="text-center">
-            <button type="submit" class="btn btn-warning">使ったお金を送信</button>
+        <div class="text-right">
+            <a href="{{ route('Clazy.top') }}" class="btn btn-warning text-left"><i class="fas fa-arrow-left"></i></a>
+            <button type="submit" class="btn btn-warning ml-4">使ったお金を送信</button>
         </div>
 
       </form>

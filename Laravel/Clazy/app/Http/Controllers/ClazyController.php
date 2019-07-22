@@ -9,6 +9,7 @@ use Carbon\Carbon;                //(追加)chart作成
 // use App\Clazy;                 //(追加) DB接続の為
 use App\Payment;                  //(追加) DB接続の為
 use App\User;                     //(追加) DB接続の為
+// 下のエージェントについては必要か不必要かの判断がまだ出来ていない
 use App\Agent;                     //sp・pc出し分けの為
 
 
@@ -155,7 +156,7 @@ class ClazyController extends Controller
     public function chart()
     {
         $userId = Auth::user()->id;
-        $payments = Payment::where('userId', $userId)->with('payments')->first();
+        // $payments = Payment::where('userId', $userId)->with('payments')->first();
 
         $dt = Carbon::now();
         $year = $dt->year;
@@ -197,6 +198,8 @@ class ClazyController extends Controller
         return ['mData' => $mData, 'wData' => $wData];
 
     }
+
+
         // $agent = new Agent();
         // if ($agent->isMobile()) {
         //     // mobile device

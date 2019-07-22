@@ -13,7 +13,6 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <!-- {{ config('app.name', 'Clazy') }} -->
                     </a>
-
                     {{--<!--  hamburger toggle -->--}}
                     <button class="navbar-toggler"
                     type="button"
