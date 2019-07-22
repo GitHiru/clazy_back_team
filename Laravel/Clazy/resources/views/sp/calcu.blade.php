@@ -25,7 +25,7 @@
 <body>
     <nav class="navbar navbar-fixed-top" role="navigation" style="background-color: white;">
           <div class="container" style="padding-right: 0px;">
-            <span></span><span style="font-size: 25px"><span style="color: gold;">C</span>lazy</span><a href="{{ route('Clazy.top') }}" >
+            <span></span><span style="font-size: 25px"><span style="color: #bf9033;">C</span>lazy</span><a href="{{ route('Clazy.top') }}" >
             <i class="fas fa-times fa-2x" style="color: black;"></i></a>
           </div>
     </nav>
@@ -134,7 +134,7 @@
 
         {{--<!-- 消費データの送信ボタンを追加 -->--}}
         <div class="text-center">
-            <button type="submit" class="btn btn-warning">使ったお金を送信</button>
+            <button type="submit" class="btn btn-block" style="background-color: #bf9033; height: 45px;">使ったお金を送信</button>
         </div>
 
       </form>

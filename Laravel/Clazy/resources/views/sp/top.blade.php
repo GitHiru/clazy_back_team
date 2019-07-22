@@ -5,10 +5,10 @@
 {{--<!--   nav   -->--}}
 
 <main>
-<header>
-        <div class="container">
+　　<header>
+        <div class="container" style="padding-right: ">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12" style="padding-right: 0px; padding-left: 0px">
                     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                     {{--<!--  Home -->--}}
                     <a class="navbar-brand" href="{{ url('/') }}">
@@ -61,39 +61,41 @@
                 </div>
             </div>
         </div>
-</header>
+    </header>
 
-{{--<!--   main  -->--}}
-<div class="box container">
-    <div class="row">
-    {{--<!-- logo -->--}}
-    <div class="text-center">
-        <a href="{{ route('login.top') }}">
-            <img src="{{ asset ('img/sp_logo.png') }}" alt="logo of Clazy" class="img-fluid" style="margin-top: 80px">
-        </a>
-    </div>
-
-
-    {{--<!--   input  -->--}}
-    <div class="row">
-        <div class="col-lg-12">
-            <a href="{{ route('Clazy.create') }}"></a>
-        </div>
-    </div>
-
-    <div class="row" style="width: 800px;">
-        <div class="col-lg-12" >
-        <div class="input-group">
-            <a href="{{ route('Clazy.create') }}">
-            <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" style="border-radius: 50px 0px 0px 50px; width: 320px;" placeholder="つかったら入力しよ〜" >
+    {{--<!--   main  -->--}}
+    <div class="box container">
+        <div class="row">
+        {{--<!-- logo -->--}}
+        <div class="text-center">
+            <a href="{{ route('login.top') }}">
+                <img src="{{ asset ('img/sp_logo.png') }}" alt="logo of Clazy" class="img-fluid" style="margin-top: 80px">
             </a>
-            <div class="input-group-append" style="border-radius: 0px 50px 50px 0px;background-color: orange">
-                <button class="btn btn-outline-secondary" type="button" style="border-radius: 0px 50px 50px 0px;background-color: yellow"><i class="fas fa-calculator fa-1x" style="color: white;"></i></button>
+        </div>
+
+
+        {{--<!--   input  -->--}}
+        <div class="row">
+            <div class="col-lg-12">
+                <a href="{{ route('Clazy.create') }}"></a>
             </div>
         </div>
+
+        <div class="row" class="text-center">
+            <div class="col-lg-12" >
+            <div class="input-group text-center">
+                <div class="text-center">
+                <a href="{{ route('Clazy.create') }}">
+                <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" style="border-radius: 50px 0px 0px 50px; width: 320px;" placeholder="つかったら入力しよ〜" >
+                </a>
+                </div>
+                <div class="input-group-append" style="border-radius: 0px 50px 50px 0px;background-color: orange">
+                    <button class="btn btn-outline-secondary" type="button" style="border-radius: 0px 50px 50px 0px;background-color: #bf9033"><i class="fas fa-calculator fa-1x" style="color: white;"></i></button>
+                </div>
+            </div>
+        </div>
+        </div>
     </div>
-    </div>
-</div>
 </main>
 
 @section('content')
