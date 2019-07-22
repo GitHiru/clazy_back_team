@@ -13,17 +13,17 @@
 </div>
 
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header bg-dark text-white">
-                        <i class="fas fa-sign-in-alt faa-ring animated"></i>
-                        {{ __('新規登録') }}
-                    </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <i class="fas fa-sign-in-alt faa-ring animated"></i>
+                    {{ __('新規登録') }}
+                </div>
 
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                <div class="card-body">
+                    <form method="POST" action="{{ route('register') }}">
                             @csrf
 
                             {{--<!--   name   -->--}}
@@ -131,11 +131,11 @@
                                 </div>
                             </div>
 
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 @endsection

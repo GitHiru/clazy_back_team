@@ -77,8 +77,7 @@
     {{--<!--   input  -->--}}
     <div class="row">
         <div class="col-lg-12">
-        <a href="{{ route('Clazy.create') }}">
-        </a>
+            <a href="{{ route('Clazy.create') }}"></a>
         </div>
     </div>
 
