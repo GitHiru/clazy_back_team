@@ -88,40 +88,6 @@
                                 </div>
                             </div>
 
-                            {{--<!--   saving    -->--}}
-                            <!-- <div class="form-group row">
-                                <label for="saving" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('ためたいおかね') }}
-                                </label>
-
-                                <div class="col-md-6">
-                                    <input id="saving" type="saving" class="form-control @error('saving') is-invalid @enderror" name="saving" value="{{ old('saving') }}" required autocomplete="saving" autofocus>
-
-                                    @error('saving')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div> -->
-
-                            {{--<!--   salary    -->--}}
-                            <!-- <div class="form-group row">
-                                <label for="salary" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('もらったおかね') }}
-                                </label>
-
-                                <div class="col-md-6">
-                                    <input id="salary" type="salary" class="form-control @error('salary') is-invalid @enderror" name="salary" value="{{ old('salary') }}" required autocomplete="salary" autofocus>
-
-                                    @error('salary')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div> -->
-
                             {{--<!--   register   -->--}}
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">

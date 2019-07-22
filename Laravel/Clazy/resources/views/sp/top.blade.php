@@ -1,12 +1,17 @@
 @extends('layouts.app')
 
+@section('title')
+TOP(SP)
+@endsection
+
 @section('content')
 
 {{--<!--   nav   -->--}}
-
 <main>
-　　<header>
-        <div class="container" style="padding-right: ">
+
+    <header>
+
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12" style="padding-right: 0px; padding-left: 0px">
                     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
