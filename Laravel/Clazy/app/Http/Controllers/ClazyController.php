@@ -9,7 +9,7 @@ use Carbon\Carbon;                  // (追加)chart作成
 // use App\Clazy;                   // (追加) DB接続の為
 use App\Payment;                    // (追加) DB接続の為
 use App\User;                       // (追加) DB接続の為
-use App\Agent;                      // sp・pc出し分けの為
+use Jenssegers\Agent\Agent;                      // sp・pc出し分けの為
 
 
 
@@ -56,6 +56,10 @@ class ClazyController extends Controller
 
     // 入力機能  *****************************************************************
 
+// エラー発生中、作業内容はログインとレジスターをした時にspとpcを判別して画面を返すという事
+    // レジスターコントローラーとログインコントローラーの返すリンク先を/からchangeに変えた
+    // プラグイン内容を引っ張ってくる為に一番上でuseを使い取ってきている
+    // エラー発生中
 
     // pcとspでの出し分け処理
     public function change()
@@ -67,7 +71,34 @@ class ClazyController extends Controller
             return view('sp.top');
         } else {
             // pc
-            return view('pc.dashboard');
+            $year = date('Y');
+            $month = date('n');
+
+            // ログインしているユーザーのユーザーデータの所得
+            $user = Auth::user();
+
+            $salary=$user->salary;
+            $saving=$user->saving;
+
+
+            // 今年と今月の値を自動で入力する流れを作成するYEAR(date) = YEAR(NOW()) AND MONTH(date)=MONTH(NOW());
+            $payments = Payment::whereYear('created_at', '=', $year)
+            ->whereMonth('created_at', '=', $month)
+            // 現在ログインしているユーザーのidと一致する消費をデータをデータベースから所得する
+            ->where('user_id', Auth::user()->id)
+                // カラムの追加、リレーションを後で追加する必要があるかも
+            ->get();
+
+            // 消費金額の合計
+            $total = 0;
+            foreach ($payments as $item) {
+                $total = $total + $item->payment;
+            }
+
+            // 自由に使えるお金
+            $free = $salary - $saving - $total;
+
+            return view('pc.dashboard', ['salary' => $salary, 'saving' => $saving, 'total' => $total, 'free' => $free]);
         }
     }
 
