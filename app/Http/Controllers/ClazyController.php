@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateClazy; // 
 use Illuminate\Support\Facades\DB;  // (追加)chart作成
 use Illuminate\Support\Facades\Auth;// (追加)auth作成
 use Carbon\Carbon;                  // (追加)chart作成
@@ -166,7 +167,7 @@ class ClazyController extends Controller
 
 
     // 給料・目標貯金額のデータベースを更新する関数
-    public function update(Request $request)
+    public function update(CreateClazy $request)
     {
         // ログインユーザー情報を取得します。
         $user = Auth::user();

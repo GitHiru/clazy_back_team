@@ -17,7 +17,7 @@ TOP(PC)
             <a href="{{ route('login') }}">
                 <button type="button" class="btn btn-secondary active btn-lg btn-block" >
                     <i class="fa fa-desktop"></i>
-                    ログイン
+                    Login
                 </button>
             </a>
         </div>
@@ -28,7 +28,7 @@ TOP(PC)
             <a href="{{ route('register') }}">
                 <button type="button" class="btn btn-dark btn-lg btn-block" checked>
                     <i class="fas fa-sign-in-alt faa-ring animated"></i>
-                    新規登録
+                    Register
                 </button>
             </a>
         </div>

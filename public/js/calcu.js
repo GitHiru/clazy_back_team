@@ -11,7 +11,7 @@ var keytmp = "";
  * ACの初期化関数
  */
 function calcuInit() {
-    document.getElementById('value-display').innerHTML = "";
+    document.getElementById('value-display').innerHTML = "0";
     ans = 0;
     tmp = 0;
     key = "";
@@ -29,7 +29,7 @@ function calcuInput(btn) {
     }
     if (keytmp != "") vDisplayClea();
     // (keytmp != "") ? vDisplayClea(): console.log();
-    valueDisplay.innerText = valueDisplay.innerText + btn;
+    valueDisplay.innerText = Number(valueDisplay.innerText + btn);
 
 }
 

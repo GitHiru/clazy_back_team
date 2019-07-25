@@ -19,7 +19,7 @@
             <div class="card">
                 <div class="card-header bg-dark text-white">
                     <i class="fas fa-sign-in-alt faa-ring animated"></i>
-                    {{ __('新規登録') }}
+                    {{ __('Register') }}
                 </div>
 
                 <div class="card-body">
@@ -29,7 +29,7 @@
                             {{--<!--   name   -->--}}
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('名前') }}
+                                    {{ __('name') }}
                                 </label>
 
                                 <div class="col-md-6">
@@ -46,7 +46,7 @@
                             {{--<!--   mail   -->--}}
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('メールアドレス') }}
+                                    {{ __('mail') }}
                                 </label>
 
                                 <div class="col-md-6">
@@ -63,7 +63,7 @@
                             {{--<!--   password   -->--}}
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('パスワード') }}
+                                    {{ __('password') }}
                                 </label>
 
                                 <div class="col-md-6">
@@ -80,7 +80,7 @@
                             {{--<!--   password   -->--}}
                             <div class="form-group row">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('パスワード') }}
+                                    {{ __('password') }}
                                 </label>
 
                                 <div class="col-md-6">
@@ -93,7 +93,7 @@
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn" style="background-color: #bf9033;">
 
-                                        {{ __('登録') }}
+                                        {{ __('register') }}
                                     </button>
                                 </div>
                             </div>

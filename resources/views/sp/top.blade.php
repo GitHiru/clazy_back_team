@@ -44,7 +44,7 @@ TOP(SP)
                                 href="{{ route('logout') }}"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                 <i class="fas fa-home"></i>
-                                {{ __('ログアウト') }}
+                                {{ __('logout') }}
                                 </a>
                                 <form id     ="logout-form"
                                 action ="{{ route('logout') }}"
@@ -57,7 +57,7 @@ TOP(SP)
                                 <a class="dropdown-item"
                                 href="{{ route('Clazy.firstInformation') }}">
                                 <i class="fas fa-chart-line"></i>
-                                {{ __('ダッシュボード') }}
+                                {{ __('dashboard') }}
                                 </a>
                             </li>
                         </ul>
@@ -91,7 +91,7 @@ TOP(SP)
             <div class="input-group text-center">
                 <div class="text-center">
                 <a href="{{ route('Clazy.create') }}">
-                <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" style="border-radius: 50px 0px 0px 50px; width: 320px;" placeholder="つかったら入力しよ〜" >
+                <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" style="border-radius: 50px 0px 0px 50px; width: 320px;" placeholder="please input your expense~" >
                 </a>
                 </div>
                 <div class="input-group-append" style="border-radius: 0px 50px 50px 0px;background-color: orange">
