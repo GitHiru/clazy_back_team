@@ -37,7 +37,7 @@
                         <input id="payment" name="payment" type="hidden" />
                         <!-- 電卓の表示部分 -->
                         <div class="value-text" id="valueInput">
-                            <p id="value-display" class="mb-0"></p>
+                            <p id="value-display" class="mb-0">0</p>
                                 <!-- 追加された部分 -->
                                 <!-- <a href="" id="payment" name="payment"> -->
                                 <!-- <input type="text" class="form-control" name="title" id="title" /> -->

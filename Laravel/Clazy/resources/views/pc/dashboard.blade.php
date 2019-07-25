@@ -34,31 +34,31 @@
         <ul class="nav">
           <li style="border-bottom: solid 1px white">
               <h5><i class="fas fa-trophy"></i></h5>
-              <h5 style="color: white">貯めたいお金</h5>
+              <h5 style="color: white">saving</h5>
               <h1 style="color: white"><i class="fas fa-yen-sign"></i>{{ $saving }}</h1>
           </li>
           <li >
             <a data-toggle="modal" data-target="#modal-1" id="modal-open">
               <i class="fas fa-user-edit"></i>
-              <p>データ編集</p>
+              <p>edit</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('Clazy.change') }}" >
+              <i class="fas fa-mobile-alt"></i>
+              <p>like google</p>
             </a>
           </li>
           <li >
             <a href="{{ route('logout') }}" onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
                   <i class="fas fa-home"></i>
-                    <p>ログアウト</p>
+                    <p>logout</p>
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   @csrf
               </form>
           </li >
-          <li>
-            <a href="">
-              <i class="fas fa-bell"></i>
-              <p>通知</p>
-            </a>
-          </li>
         </ul>
       </div>
     </header>
@@ -90,20 +90,29 @@
     <div class="modal fade" id="modal-2">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
+          @if($errors->any())
+          <div style="margin: auto;">
+             <ul>
+                 @foreach($errors->all() as $message)
+                      <li class="alert alert-danger">{{ $message }}</li>
+                 @endforeach
+             </ul>
+          </div>
+          @endif
           <form action="{{ route('Clazy.update') }}" method="post">
                     @csrf
                     @method('put')
           <!-- モーダルウィンドウのコンテンツ開始 -->
-            <h4>最初に以下の値を入力してね</h4>
+            <h4>Please put your money information</h4>
             <h3>
               <i class="fas fa-trophy"></i>
-              貯めたいお金(月)<br>
-              <input type="text" name="saving" id="saving" value="{{ old('saving', $saving) }}">円
+              saving(month)<br>
+              <input type="text" name="saving" id="saving" value="{{ old('saving', $saving) }}" style="text-align: center;">
             </h3>
             <h3>
               <i class="fas fa-coins"></i>
-              入ったお金(月)
-              <input type="text" name="salary" id="salary" value="{{ old('salary', $salary) }}">円
+              salary(month)
+              <input type="text" name="salary" id="salary" value="{{ old('salary', $salary) }}" style="text-align: center;">
             </h3>
             {{--
             <!-- 例として薄いグレー色で値を表示する。メールアドレスと同じ様に -->
@@ -112,7 +121,7 @@
             --}}
             <p>
               <button class="button-link" type="submit">
-                完了
+                finish
               </button>
             </p>
           </form>
@@ -128,19 +137,28 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <!-- モーダルウィンドウのコンテンツ開始 -->
+            @if($errors->any())
+          <div style="margin: auto;">
+             <ul>
+                 @foreach($errors->all() as $message)
+                      <li class="alert alert-danger">{{ $message }}</li>
+                 @endforeach
+             </ul>
+          </div>
+            @endif
         <form action="{{ route('Clazy.update') }}" method="post">
                     @csrf
                     @method('put')
           <h3>
             <i class="fas fa-trophy"></i>
             貯めたいお金(月)<br>
-            <input type="text" name="saving" id="saving" value="{{ old('saving', $saving) }}">円
+            <input type="text" name="saving" id="saving" value="{{ old('saving', $saving) }}" style="text-align: center;">円
           </h3>
 
           <h3>
             <i class="fas fa-coins"></i>
             入ったお金(月)
-            <input type="text" name="salary" id="salary" value="{{ old('salary', $salary) }}">円
+            <input type="text" name="salary" id="salary" value="{{ old('salary', $salary) }}" style="text-align: center;">円
           </h3>
           <p>
             <button type="submit" class="button-link ">
@@ -180,7 +198,7 @@
               <div class="row mb-3">
                 <div class="col-lg-4">
                   <div class="card">
-                    <h3 class="card-header"><i class="fas fa-coins"></i>入ったお金</h3>
+                    <h3 class="card-header"><i class="fas fa-coins"></i>salary</h3>
                     <div class="card-body text-warning">
                       <h5 class="card-title py-3"></h5>
                       <p class="card-text py-5" style="color: #bf9033"><i class="fas fa-yen-sign text-black"></i>{{ $salary }}</p>
@@ -189,7 +207,7 @@
                 </div>
                 <div class="col-lg-4">
                   <div class="card">
-                    <h3 class="card-header"><i class="fas fa-hand-holding-usd"></i>使ったお金</h3>
+                    <h3 class="card-header"><i class="fas fa-hand-holding-usd"></i>expense</h3>
                     <div class="card-body text-warning">
                       <h5 class="card-title py-3"></h5>
                       <p class="card-text py-5" style="color: #bf9033"><i class="fas fa-yen-sign text-black"></i>{{ $total }}</p>
@@ -198,7 +216,7 @@
                 </div>
                 <div class="col-lg-4">
                   <div class="card">
-                    <h3 class="card-header"><i class="fas fa-user-plus"></i>自由に使えるお金</h3>
+                    <h3 class="card-header"><i class="fas fa-user-plus"></i>freely money</h3>
                     <div class="card-body text-warning">
                       <h5 class="card-title py-3"></h5>
                       <p class="card-text py-5" style="color: #bf9033"><i class="fas fa-yen-sign text-black"></i>{{ $free }}</p>
